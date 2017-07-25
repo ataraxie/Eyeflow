@@ -29,14 +29,14 @@ namespace Eyetrack.Runners.WebsocketExample
             if (gazeCount % 50 == 0) {
                 var coordString = x + "/" + y;
                 Console.WriteLine("Broadcast: " + coordString);
-                server.WebSocketServices["/Gaze"].Sessions.Broadcast(coordString);
+                server.WebSocketServices["/"].Sessions.Broadcast(coordString);
             }
         }
 
         public override void run()
         {
-            server = new WebSocketServer("ws://localhost:4000");
-            server.AddWebSocketService<GazeService>("/Gaze");
+            server = new WebSocketServer("ws://localhost:8887");
+            server.AddWebSocketService<GazeService>("/");
             server.Start();
 
             var host = new Host();

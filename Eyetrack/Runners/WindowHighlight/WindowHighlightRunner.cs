@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Diagnostics;
-using System.Runtime.InteropServices;
 using System.Linq;
 using System.Drawing;
 using Tobii.Interaction;
@@ -18,7 +17,7 @@ namespace Eyetrack.Runners.WindowHighlight
     public class WindowHighlightRunner : Runner
     {
         private int gazeCount = 0;
-        private Dictionary<Process, Rectangle> rectangles;
+        private Dictionary<System.Diagnostics.Process, Rectangle> rectangles;
 
         [DllImport("user32.dll")]
         [return: MarshalAs(UnmanagedType.Bool)]
@@ -26,9 +25,6 @@ namespace Eyetrack.Runners.WindowHighlight
 
         [DllImport("user32.dll")]
         static extern bool IsIconic(IntPtr handle);
-
-        [DllImport("user32.dll", SetLastError = true)]
-        static extern bool GetWindowRect(IntPtr hWnd, out NativeRect nativeRect);
 
         [DllImport("user32.dll", SetLastError = true)]
         internal static extern bool MoveWindow(IntPtr hWnd, int X, int Y, int nWidth, int nHeight, bool bRepaint);
@@ -60,16 +56,14 @@ namespace Eyetrack.Runners.WindowHighlight
         [DllImport("user32.dll", SetLastError = true)]
         static extern uint GetWindowThreadProcessId(IntPtr hWnd, out uint lpdwProcessId);
 
-        [StructLayout(LayoutKind.Sequential)]
-        public struct NativeRect
-        {
-            public int Left;
-            public int Top;
-            public int Right;
-            public int Bottom;
-        }
+        [DllImport("user32.dll", SetLastError = true)]
+        static extern bool GetWindowRect(IntPtr hWnd, out Rectangle lpRect);
 
         private uint currentProcessId;
+        private Process currentProcess;
+        private List<Process> allProcesses = new List<Process>();
+        private List<Process> nonActiveProcesses = new List<Process>();
+
 
         public override void run()
         {
@@ -80,34 +74,96 @@ namespace Eyetrack.Runners.WindowHighlight
             host.DisableConnection();
         }
 
+        private void redraw()
+        {
+            Console.WriteLine("Active: " + this.currentProcess.ProcessName);
+            Console.WriteLine("Non-Active: " + getProcessNames(this.nonActiveProcesses));
+            setTransparency(this.currentProcess.MainWindowHandle, 255);
+            foreach (Process process in this.nonActiveProcesses)
+            {
+                setTransparency(process.MainWindowHandle, 255);
+            }
+        }
+
+        private string getProcessNames(List<Process> processes)
+        {
+            List<string> names = new List<string>();
+            foreach (Process process in this.nonActiveProcesses)
+            {
+                names.Add(process.ProcessName);
+            }
+            return String.Join(", ", names.ToArray());
+        }
+
+        private void setTransparency(IntPtr handle, byte value)
+        {
+            SetWindowLong(handle, GWL_EXSTYLE, GetWindowLong(handle, GWL_EXSTYLE) ^ WS_EX_LAYERED);
+            SetLayeredWindowAttributes(handle, 0, value, LWA_ALPHA);
+        }
+
+        private bool isTargetProcess(Process process)
+        {
+            bool ret = false;
+            IntPtr handle = process.MainWindowHandle;
+            if (handle != IntPtr.Zero && !IsIconic(handle) && IsWindowVisible(handle)
+                && process.ProcessName != "explorer")
+            {
+                Rectangle rect = new Rectangle();
+                GetWindowRect(handle, out rect);
+                if (rect.Width > 0 && rect.Height > 0)
+                {
+                    ret = true;
+                }
+            }
+            return ret;
+        }
+
         private void onGaze(double x, double y, double timestamp)
         {
             this.gazeCount++;
             Point point = new Point((int)x, (int)y);
-            IntPtr handle = WindowFromPoint(point);
+            IntPtr window = WindowFromPoint(point);
             uint processId;
-            GetWindowThreadProcessId(handle, out processId);
-            if (this.gazeCount % 100 == 0)
+            GetWindowThreadProcessId(window, out processId);
+            if (this.gazeCount % 10 == 0)
             {
                 if (this.currentProcessId != processId)
                 {
                     this.currentProcessId = processId;
-                    Process processInView = Process.GetProcessById((int)processId);
-                    Console.WriteLine(processInView.ProcessName);
-                    SetWindowLong(handle, GWL_EXSTYLE, GetWindowLong(handle, GWL_EXSTYLE) ^ WS_EX_LAYERED);
-                    SetLayeredWindowAttributes(handle, 0, 255, LWA_ALPHA);
-
+                    this.currentProcess = Process.GetProcessById((int)processId);
+                    this.nonActiveProcesses.Clear();
                     foreach (Process process in Process.GetProcesses())
                     {
-                        if (process != processInView)
+                        IntPtr handle = process.MainWindowHandle;
+                        if (this.currentProcessId != process.Id && isTargetProcess(process))
                         {
-                            SetWindowLong(process.MainWindowHandle, GWL_EXSTYLE, GetWindowLong(handle, GWL_EXSTYLE) ^ WS_EX_LAYERED);
-                            SetLayeredWindowAttributes(process.MainWindowHandle, 0, 100, LWA_ALPHA);
+                            this.nonActiveProcesses.Add(process);
                         }
                     }
+
+                    redraw();
                 }
             }
-
+            //if (this.gazeCount % 10 == 0)
+            //{
+            //    if (this.activeWindow != window)
+            //    {
+            //        this.activeWindow = window;
+            //        foreach (Process process in Process.GetProcesses())
+            //        {
+            //            IntPtr handle = process.MainWindowHandle;
+            //            this.allWindows.Add(handle);
+            //            if (this.activeWindow != handle)
+            //            {
+            //                this.nonActiveWindows.Add(handle);
+            //            } else
+            //            {
+            //                this.activeProcess = process;
+            //            }
+            //        }
+            //        Console.WriteLine("Active: " + this.activeProcess.ProcessName);
+            //    }
+            //}
         }
     }
 }

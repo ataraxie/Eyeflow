@@ -9,3 +9,15 @@ C:\Users\IEUser\Dropbox\dev\dotnet\Eyetrack\Eyetrack\bin\Debug\websocket-sharp.x
 C:\Users\IEUser\Dropbox\dev\dotnet\Eyetrack\Eyetrack\obj\Debug\Eyetrack.exe
 C:\Users\IEUser\Dropbox\dev\dotnet\Eyetrack\Eyetrack\obj\Debug\Eyetrack.pdb
 C:\Users\IEUser\Dropbox\dev\dotnet\Eyetrack\Eyetrack\obj\Debug\Eyetrack.csprojResolveAssemblyReference.cache
+C:\Users\IEUser\Dropbox\dev\dotnet\Eyetrack\Eyetrack\bin\Debug\Overlay.NET.dll
+C:\Users\IEUser\Dropbox\dev\dotnet\Eyetrack\Eyetrack\bin\Debug\Process.NET.dll
+C:\Users\IEUser\Dropbox\dev\dotnet\Eyetrack\Eyetrack\bin\Debug\SharpDX.Direct2D1.dll
+C:\Users\IEUser\Dropbox\dev\dotnet\Eyetrack\Eyetrack\bin\Debug\SharpDX.dll
+C:\Users\IEUser\Dropbox\dev\dotnet\Eyetrack\Eyetrack\bin\Debug\SharpDX.DXGI.dll
+C:\Users\IEUser\Dropbox\dev\dotnet\Eyetrack\Eyetrack\bin\Debug\SharpDX.Mathematics.dll
+C:\Users\IEUser\Dropbox\dev\dotnet\Eyetrack\Eyetrack\bin\Debug\Process.NET.pdb
+C:\Users\IEUser\Dropbox\dev\dotnet\Eyetrack\Eyetrack\bin\Debug\Process.NET.xml
+C:\Users\IEUser\Dropbox\dev\dotnet\Eyetrack\Eyetrack\bin\Debug\SharpDX.xml
+C:\Users\IEUser\Dropbox\dev\dotnet\Eyetrack\Eyetrack\bin\Debug\SharpDX.Direct2D1.xml
+C:\Users\IEUser\Dropbox\dev\dotnet\Eyetrack\Eyetrack\bin\Debug\SharpDX.DXGI.xml
+C:\Users\IEUser\Dropbox\dev\dotnet\Eyetrack\Eyetrack\bin\Debug\SharpDX.Mathematics.xml

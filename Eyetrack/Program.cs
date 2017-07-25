@@ -4,12 +4,15 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Eyetrack.Runners;
-using Eyetrack.Runners.TobiiWelcomeExample;
+//using Eyetrack.Runners.TobiiWelcomeExample;
 using Eyetrack.Runners.WebsocketExample;
-using Eyetrack.Runners.GazeWindows;
-using Eyetrack.Runners.RectangleDrawer;
-using Eyetrack.Runners.WindowHighlight;
+//using Eyetrack.Runners.GazeWindows;
+//using Eyetrack.Runners.RectangleDrawer;
+//using Eyetrack.Runners.WindowHighlight;
 using Eyetrack.Runners.WindowIdentifier;
+using Eyetrack.Runners.WindowBlur;
+using Eyetrack.Runners.RectangleRemover;
+using Eyetrack.Runners.SocketExample;
 
 namespace Eyetrack
 {
@@ -24,6 +27,9 @@ namespace Eyetrack
             //runner = new RectangleDrawerRunner();
             //runner = new WindowHighlightRunner();
             runner = new WindowIdentifierRunner();
+            //runner = new WindowBlurRunner();
+            //runner = new RectangleRemover();
+            //runner = new SocketRunner();
             runner.run();
         }
     }
