@@ -1,21 +1,11 @@
 ﻿using System;
-using System.Diagnostics;
-using System.Linq;
-using System.Drawing;
 using Tobii.Interaction;
-using System.Runtime.InteropServices;
 
-using System.Collections.Generic;
-
-using Rectangle = System.Drawing.Rectangle;
-using Size = System.Drawing.Size;
-using Eyetrack.Runners;
-
-namespace Eyetrack.Runners.TimerExample
+namespace Eyetrack
 {
-    class GazeDispatcher
+    public class GazeDispatcher
     {
-        public event EventHandler<GazeEventArgs> GazeEvent;
+        private event EventHandler<GazeEventArgs> GazeEvent;
 
         Host host;
 
@@ -28,6 +18,11 @@ namespace Eyetrack.Runners.TimerExample
         public void stop()
         {
             this.host.DisableConnection();
+        }
+
+        public void addEventHandler(EventHandler<GazeEventArgs> handler)
+        {
+            GazeEvent += handler;
         }
 
         private void onGaze(double x, double y, double timestamp)

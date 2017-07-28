@@ -4,10 +4,11 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Eyetrack.Runners
+namespace Eyetrack
 {
     public abstract class Runner
     {
-        abstract public void run();
+        abstract public void start(GazeDispatcher gazeDispatcher);
+        abstract public void stop();
     }
 }

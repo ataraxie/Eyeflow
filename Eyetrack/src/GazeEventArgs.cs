@@ -4,9 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Eyetrack.Runners.TimerExample
+namespace Eyetrack
 {
-    class GazeEventArgs : EventArgs
+    public class GazeEventArgs : EventArgs
     {
         public double x;
         public double y;

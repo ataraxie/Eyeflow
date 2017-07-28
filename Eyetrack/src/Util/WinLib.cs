@@ -1,20 +1,12 @@
 ﻿using System;
 using System.Diagnostics;
-using System.Linq;
-using System.Drawing;
-using Tobii.Interaction;
 using System.Runtime.InteropServices;
 
 using System.Collections.Generic;
 
 using Rectangle = System.Drawing.Rectangle;
-using Size = System.Drawing.Size;
-using Eyetrack.Runners;
-using System.Timers;
-using AutoHotkey.Interop;
 
-
-namespace Eyetrack.Runners.TimerExample
+namespace Eyetrack.Util
 {
     class WinLib
     {
@@ -53,6 +45,9 @@ namespace Eyetrack.Runners.TimerExample
         [DllImport("user32.dll")]
         public static extern bool EnumWindows(EnumWindowsProc enumProc, IntPtr lParam);
         public delegate bool EnumWindowsProc(IntPtr hWnd, IntPtr lParam);
+
+        [DllImport("user32.dll")]
+        public static extern bool SetForegroundWindow(IntPtr hWnd);
 
         public static IntPtr getTopLevelWindow(IntPtr window)
         {

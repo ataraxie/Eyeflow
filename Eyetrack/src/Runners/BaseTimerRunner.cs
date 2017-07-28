@@ -2,27 +2,15 @@
 using System.Diagnostics;
 using System.Linq;
 using System.Drawing;
-using Tobii.Interaction;
-using System.Runtime.InteropServices;
-
 using System.Collections.Generic;
-
-using Rectangle = System.Drawing.Rectangle;
-using Size = System.Drawing.Size;
-using Eyetrack.Runners;
 using System.Timers;
-using AutoHotkey.Interop;
+using Eyetrack.Util;
 
-namespace Eyetrack.Runners.TimerExample
+namespace Eyetrack.Runners
 {
     abstract class BaseTimerRunner : Runner
     {
-        private static List<string> IGNORED_PROCESSES = new List<string>(new string[] {
-            "explorer", "Eyetrack"
-        });
-
-        private static long TIMER_INTERVAL = 1000;
-        private static int GAZE_THRESHOLD = 10;
+        private static Config config = Config.Instance;
 
         private GazeDispatcher gazeDispatcher;
         private int gazeCount = 0;
@@ -33,15 +21,16 @@ namespace Eyetrack.Runners.TimerExample
         protected HashSet<IntPtr> visibleWindows = new HashSet<IntPtr>();
         protected HashSet<IntPtr> hiddenWindows = new HashSet<IntPtr>();
 
-        public override void run()
+        public override void start(GazeDispatcher gazeDispatcher)
         {
             hideAllTopLevelWindows();
-            this.gazeDispatcher = new GazeDispatcher();
-            this.gazeDispatcher.GazeEvent += onGazeEvent;
-            this.gazeDispatcher.start();
+            this.gazeDispatcher = gazeDispatcher;
+            this.gazeDispatcher.addEventHandler(onGazeEvent);
             initTimer();
-            Console.ReadKey();
-            this.gazeDispatcher.stop();
+        }
+
+        public override void stop()
+        {
             showAllHiddenWindows();
         }
 
@@ -50,16 +39,16 @@ namespace Eyetrack.Runners.TimerExample
 
         private void initTimer()
         {
-            System.Timers.Timer aTimer = new System.Timers.Timer();
-            aTimer.Elapsed += new ElapsedEventHandler(onTimerTick);
-            aTimer.Interval = TIMER_INTERVAL;
-            aTimer.Enabled = true;
+            Timer timer = new Timer();
+            timer.Elapsed += new ElapsedEventHandler(onTimerTick);
+            timer.Interval = config.globalCheckTimerInterval;
+            timer.Enabled = true;
         }
 
         private void onGazeEvent(object sender, GazeEventArgs e)
         {
             this.gazeCount++;
-            if (this.gazeCount % GAZE_THRESHOLD == 0)
+            if (this.gazeCount % config.runOnEveryXGazeDispatch == 0)
             {
                 Point point = new Point((int)e.x, (int)e.y);
                 IntPtr windowAtGaze = WinLib.WindowFromPoint(point);
@@ -110,7 +99,7 @@ namespace Eyetrack.Runners.TimerExample
         private bool isTargetWindow(IntPtr window)
         {
             Process process = WinLib.getProcess(window);
-            return !IGNORED_PROCESSES.Contains(process.ProcessName);
+            return !config.ignoredProcesses.Contains(process.ProcessName);
         }
 
     }
