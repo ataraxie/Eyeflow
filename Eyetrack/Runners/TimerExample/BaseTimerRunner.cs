@@ -81,7 +81,7 @@ namespace Eyetrack.Runners.TimerExample
         {
             foreach (IntPtr window in this.hiddenWindows.ToList())
             {
-                hideWindow(window);
+                showWindow(window);
             }
         }
 
