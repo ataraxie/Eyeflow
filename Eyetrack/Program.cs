@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using System.IO;
 using Eyetrack;
 using Eyetrack.Runners;
+using Eyetrack.Dispatchers;
 
 namespace Eyetrack
 {
@@ -14,8 +15,8 @@ namespace Eyetrack
         public static void Main(string[] args)
         {
             Config.init();
-            GazeDispatcher gazeDispatcher = new GazeDispatcher();
-            Runner timerRunner = new AnimatingTimerRunner();
+            GazeDispatcher gazeDispatcher = new SimulatingGazeDispatcher();
+            Runner timerRunner = new RectangleDrawerRunner();
             timerRunner.start(gazeDispatcher);
             gazeDispatcher.start();
             Console.ReadKey();

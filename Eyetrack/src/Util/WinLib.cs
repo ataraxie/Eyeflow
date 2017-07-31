@@ -49,6 +49,9 @@ namespace Eyetrack.Util
         [DllImport("user32.dll")]
         public static extern bool SetForegroundWindow(IntPtr hWnd);
 
+        [DllImport("User32.dll")]
+        public static extern IntPtr GetDC(IntPtr hwnd);
+
         public static IntPtr getTopLevelWindow(IntPtr window)
         {
             if (GetParent(window) != IntPtr.Zero)

@@ -35,5 +35,10 @@ namespace Eyetrack.Util
             }
             return transparency;
         }
+
+        public static long getTimestamp()
+        {
+            return DateTimeOffset.Now.ToUnixTimeMilliseconds();
+        }
     }
 }

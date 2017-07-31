@@ -14,7 +14,7 @@ namespace Eyetrack.Runners
 
         protected override void onTimerTick(object source, ElapsedEventArgs e)
         {
-            long now = DateTimeOffset.Now.ToUnixTimeMilliseconds();
+            long now = GazeLib.getTimestamp();
             foreach (IntPtr window in this.visibleWindows.ToList())
             {
                 if (window != this.currentlyActiveWindow)

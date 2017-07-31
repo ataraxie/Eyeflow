@@ -1,9 +1,9 @@
 ﻿using System;
 using Tobii.Interaction;
 
-namespace Eyetrack
+namespace Eyetrack.Dispatchers
 {
-    public class GazeDispatcher
+    public class RealGazeDispatcher : GazeDispatcher
     {
         private event EventHandler<GazeEventArgs> GazeEvent;
 

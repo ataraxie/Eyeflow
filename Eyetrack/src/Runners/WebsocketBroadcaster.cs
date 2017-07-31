@@ -8,6 +8,8 @@ using Tobii.Interaction;
 using WebSocketSharp;
 using WebSocketSharp.Server;
 
+using Eyetrack.Dispatchers;
+
 namespace Eyetrack.Runners
 {
     public class WebsocketRunner : Runner

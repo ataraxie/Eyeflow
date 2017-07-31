@@ -65,14 +65,17 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="src\Animations\FadeOutAnimation.cs" />
     <Compile Include="Config.cs" />
+    <Compile Include="src\Dispatchers\SimulatingGazeDispatcher.cs" />
+    <Compile Include="src\Dispatchers\GazeDispatcher.cs" />
     <Compile Include="src\Runners\AnimatingTimerRunner.cs" />
-    <Compile Include="src\GazeDispatcher.cs" />
+    <Compile Include="src\Dispatchers\RealGazeDispatcher.cs" />
     <Compile Include="src\Runners\BaseTimerRunner.cs" />
     <Compile Include="src\GazeEventArgs.cs" />
+    <Compile Include="src\Runners\RectangleDrawerRunner.cs" />
     <Compile Include="src\Util\GazeLib.cs" />
     <Compile Include="src\Runners\WebsocketBroadcaster.cs" />
     <Compile Include="src\Util\WinLib.cs" />
-    <Compile Include="src\Runner.cs" />
+    <Compile Include="src\Runners\Runner.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
