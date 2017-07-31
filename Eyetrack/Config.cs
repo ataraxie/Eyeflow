@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Drawing;
 
 namespace Eyetrack
 {
@@ -12,7 +13,7 @@ namespace Eyetrack
 
         // global
         public long globalCheckTimerInterval = 1000;
-        public int runOnEveryXGazeDispatch = 10;
+        public int runOnEveryXGazeDispatch = 1;
 
         public bool windowToForegroundOnGaze = false;
         public int windowInactiveThresholdMs = 5000;
@@ -21,6 +22,10 @@ namespace Eyetrack
         public int fadeOutAnimationTimeIntervalMs = 20;
         public int fadeOutAnimationTransparencyInterval = 10;
         public int fadeOutAnimationMinTransparency = 50;
+
+        // debugging
+        public bool showGazePosition = true;
+        public Color gazePositionColor = Color.Beige;
 
         // processes/windows
         public List<string> ignoredProcesses = new List<string>(new string[] {

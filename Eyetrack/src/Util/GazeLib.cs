@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Drawing;
 
 namespace Eyetrack.Util
 {
@@ -39,6 +40,23 @@ namespace Eyetrack.Util
         public static long getTimestamp()
         {
             return DateTimeOffset.Now.ToUnixTimeMilliseconds();
+        }
+
+        public static void drawRectangle(int x, int y)
+        {
+            Point point = new Point(x, y);
+            Pen pen = new Pen(Config.Instance.gazePositionColor, 2);
+            SolidBrush brush = new SolidBrush(Config.Instance.gazePositionColor);
+            IntPtr desktopPtr = WinLib.GetDC(IntPtr.Zero);
+            Graphics g = Graphics.FromHdc(desktopPtr);
+            Rectangle rect = new Rectangle(point, new Size(30, 30));
+            g.FillRectangle(brush, rect);
+            g.DrawRectangle(pen, rect);
+        }
+
+        public void log(string msg)
+        {
+            Console.WriteLine(msg);
         }
     }
 }

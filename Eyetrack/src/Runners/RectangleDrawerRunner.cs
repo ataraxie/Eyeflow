@@ -28,11 +28,11 @@ namespace Eyetrack.Runners
         private void onGazeEvent(object sender, GazeEventArgs e)
         {
             Console.WriteLine("NEW GAZE 2");
-            Point point = new Point((int)e.x, (int)e.y);
-            Pen pen = new Pen(Color.Blue, 2);
+            Point point = new Point((int) e.x, (int) e.y);
+            Pen pen = new Pen(Color.Beige, 2);
             IntPtr desktopPtr = WinLib.GetDC(IntPtr.Zero);
             Graphics g = Graphics.FromHdc(desktopPtr);
-            Rectangle rect2 = new Rectangle(point, new Size(100, 100));
+            Rectangle rect2 = new Rectangle(point, new Size(50, 50));
             g.DrawRectangle(pen, rect2);
         }
     }

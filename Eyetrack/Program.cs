@@ -16,11 +16,13 @@ namespace Eyetrack
         {
             Config.init();
             GazeDispatcher gazeDispatcher = new SimulatingGazeDispatcher();
-            Runner timerRunner = new RectangleDrawerRunner();
-            timerRunner.start(gazeDispatcher);
+            //GazeDispatcher gazeDispatcher = new RealGazeDispatcher();
+            //Runner runner = new RectangleDrawerRunner();
+            Runner runner = new AnimatingTimerRunner();
+            runner.start(gazeDispatcher);
             gazeDispatcher.start();
             Console.ReadKey();
-            timerRunner.stop();
+            runner.stop();
             gazeDispatcher.stop();
         }
     }

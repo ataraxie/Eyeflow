@@ -15,7 +15,7 @@ namespace Eyetrack.Dispatchers
         private Timer timer;
         private int tickCount = 0;
         private int timesCount = 0;
-        private int x = 0;
+        private int x = 100;
         private int y = 0;
 
         public void start()
@@ -38,11 +38,11 @@ namespace Eyetrack.Dispatchers
             {
                 this.x += 100;
             }
-            else if (this.tickCount < 35)
+            else if (this.tickCount < 33)
             {
                 this.y -= 100;
             }
-            else if (this.tickCount < 50)
+            else if (this.tickCount < 48)
             {
                 this.x -= 100;
             }

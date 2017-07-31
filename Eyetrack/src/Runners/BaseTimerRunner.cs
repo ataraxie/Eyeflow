@@ -49,6 +49,10 @@ namespace Eyetrack.Runners
         private void onGazeEvent(object sender, GazeEventArgs e)
         {
             this.gazeCount++;
+            if (config.showGazePosition)
+            {
+                GazeLib.drawRectangle((int)e.x, (int)e.y);
+            }
             if (this.gazeCount % config.runOnEveryXGazeDispatch == 0)
             {
                 Point point = new Point((int)e.x, (int)e.y);
