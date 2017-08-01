@@ -1,0 +1,11 @@
+C:\Users\IEUser\Dropbox\dev\dotnet\Eyeflow\Eyeflow\bin\Debug\Tobii.EyeX.Client.dll
+C:\Users\IEUser\Dropbox\dev\dotnet\Eyeflow\Eyeflow\bin\Debug\Eyeflow.exe.config
+C:\Users\IEUser\Dropbox\dev\dotnet\Eyeflow\Eyeflow\bin\Debug\Eyeflow.exe
+C:\Users\IEUser\Dropbox\dev\dotnet\Eyeflow\Eyeflow\bin\Debug\Eyeflow.pdb
+C:\Users\IEUser\Dropbox\dev\dotnet\Eyeflow\Eyeflow\bin\Debug\Tobii.Interaction.Model.dll
+C:\Users\IEUser\Dropbox\dev\dotnet\Eyeflow\Eyeflow\bin\Debug\Tobii.Interaction.Net.dll
+C:\Users\IEUser\Dropbox\dev\dotnet\Eyeflow\Eyeflow\bin\Debug\websocket-sharp.dll
+C:\Users\IEUser\Dropbox\dev\dotnet\Eyeflow\Eyeflow\bin\Debug\websocket-sharp.xml
+C:\Users\IEUser\Dropbox\dev\dotnet\Eyeflow\Eyeflow\obj\Debug\Eyeflow.csprojResolveAssemblyReference.cache
+C:\Users\IEUser\Dropbox\dev\dotnet\Eyeflow\Eyeflow\obj\Debug\Eyeflow.exe
+C:\Users\IEUser\Dropbox\dev\dotnet\Eyeflow\Eyeflow\obj\Debug\Eyeflow.pdb
