@@ -11,6 +11,7 @@ namespace Eyetrack.Runners
 {
     abstract class BaseTimerRunner : Runner
     {
+        private static Logger log = Logger.get(typeof(BaseTimerRunner));
         private static Config config = Config.Instance;
 
         private GazeDispatcher gazeDispatcher;
@@ -24,6 +25,7 @@ namespace Eyetrack.Runners
 
         public override void start(GazeDispatcher gazeDispatcher)
         {
+            log.info("BaseTimerRunner started");
             hideAllTopLevelWindows();
             this.gazeDispatcher = gazeDispatcher;
             this.gazeDispatcher.addEventHandler(onGazeEvent);
@@ -49,7 +51,7 @@ namespace Eyetrack.Runners
         private void onGazeEvent(object sender, GazeEventArgs e)
         {
             this.gazeCount++;
-            if (config.showGazePosition)
+            if (config.drawGazePositionRectangles)
             {
                 GazeLib.drawRectangle((int)e.x, (int)e.y);
             }
@@ -58,7 +60,7 @@ namespace Eyetrack.Runners
                 Point point = new Point((int)e.x, (int)e.y);
                 IntPtr windowAtGaze = WinLib.WindowFromPoint(point);
                 this.currentlyActiveWindow = WinLib.getTopLevelWindow(windowAtGaze);
-                long stamp = DateTimeOffset.Now.ToUnixTimeMilliseconds();
+                long stamp = GazeLib.getTimestamp();
                 this.windowGazeTimestamps[this.currentlyActiveWindow] = stamp;
                 onNewWindowGaze(this.currentlyActiveWindow);
             }
@@ -85,7 +87,8 @@ namespace Eyetrack.Runners
             {
                 this.visibleWindows.Add(window);
                 this.hiddenWindows.Remove(window);
-                Console.WriteLine("Show process: " + WinLib.getProcess(window).ProcessName);
+                string processName = WinLib.getProcess(window).ProcessName;
+                log.info("Showing process: {0}", processName);
                 WinLib.setTransparency(window, 255);
             }
         }
@@ -96,7 +99,8 @@ namespace Eyetrack.Runners
             {
                 this.visibleWindows.Remove(window);
                 this.hiddenWindows.Add(window);
-                Console.WriteLine("Hiding process: " + WinLib.getProcess(window).ProcessName);
+                string processName = WinLib.getProcess(window).ProcessName;
+                log.info("Hiding process: {0}", processName);
                 WinLib.setTransparency(window, 50);
             }
         }

@@ -17,7 +17,8 @@ namespace Eyetrack.Runners
             long now = GazeLib.getTimestamp();
             foreach (IntPtr window in this.visibleWindows.ToList())
             {
-                if (window != this.currentlyActiveWindow)
+                if (window != this.currentlyActiveWindow
+                    && this.windowGazeTimestamps.ContainsKey(window))
                 {
                     string processName = WinLib.getProcessName(window);
                     long timeInactiveMs = now - this.windowGazeTimestamps[window];

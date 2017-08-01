@@ -3,9 +3,9 @@ C:\Users\IEUser\Dropbox\dev\dotnet\Eyetrack\Eyetrack\bin\Debug\Eyetrack.exe.conf
 C:\Users\IEUser\Dropbox\dev\dotnet\Eyetrack\Eyetrack\bin\Debug\Eyetrack.exe
 C:\Users\IEUser\Dropbox\dev\dotnet\Eyetrack\Eyetrack\bin\Debug\Eyetrack.pdb
 C:\Users\IEUser\Dropbox\dev\dotnet\Eyetrack\Eyetrack\bin\Debug\Tobii.Interaction.Model.dll
-C:\Users\IEUser\Dropbox\dev\dotnet\Eyetrack\Eyetrack\bin\Debug\Tobii.Interaction.Net.dll
 C:\Users\IEUser\Dropbox\dev\dotnet\Eyetrack\Eyetrack\bin\Debug\websocket-sharp.dll
 C:\Users\IEUser\Dropbox\dev\dotnet\Eyetrack\Eyetrack\bin\Debug\websocket-sharp.xml
-C:\Users\IEUser\Dropbox\dev\dotnet\Eyetrack\Eyetrack\obj\Debug\Eyetrack.csprojResolveAssemblyReference.cache
 C:\Users\IEUser\Dropbox\dev\dotnet\Eyetrack\Eyetrack\obj\Debug\Eyetrack.exe
 C:\Users\IEUser\Dropbox\dev\dotnet\Eyetrack\Eyetrack\obj\Debug\Eyetrack.pdb
+C:\Users\IEUser\Dropbox\dev\dotnet\Eyetrack\Eyetrack\bin\Debug\Tobii.Interaction.Net.dll
+C:\Users\IEUser\Dropbox\dev\dotnet\Eyetrack\Eyetrack\obj\Debug\Eyetrack.csprojResolveAssemblyReference.cache

@@ -1,9 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Drawing;
+using Eyetrack.Util;
 
 namespace Eyetrack
 {
@@ -21,11 +19,15 @@ namespace Eyetrack
         // animation
         public int fadeOutAnimationTimeIntervalMs = 20;
         public int fadeOutAnimationTransparencyInterval = 10;
-        public int fadeOutAnimationMinTransparency = 50;
+        public int fadeOutAnimationMinTransparency = 40;
 
         // debugging
-        public bool showGazePosition = true;
+        public bool drawGazePositionRectangles = false; // ONLY FOR DEV!!
         public Color gazePositionColor = Color.Beige;
+
+        // logging
+        public string logFilePath = @"C:\Windows\Temp\eyetrack.log";
+        public int logLevel = 2;
 
         // processes/windows
         public List<string> ignoredProcesses = new List<string>(new string[] {

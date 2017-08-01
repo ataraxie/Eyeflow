@@ -1,8 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Drawing;
 
 namespace Eyetrack.Util
@@ -39,7 +35,10 @@ namespace Eyetrack.Util
 
         public static long getTimestamp()
         {
-            return DateTimeOffset.Now.ToUnixTimeMilliseconds();
+            var epoch = new DateTime(1970, 1, 1, 0, 0, 0, DateTimeKind.Utc);
+            var now = DateTimeOffset.Now.ToUniversalTime();
+            var timestamp = (now - epoch).TotalMilliseconds;
+            return (long) timestamp;
         }
 
         public static void drawRectangle(int x, int y)

@@ -15,8 +15,8 @@ namespace Eyetrack
         public static void Main(string[] args)
         {
             Config.init();
-            GazeDispatcher gazeDispatcher = new SimulatingGazeDispatcher();
-            //GazeDispatcher gazeDispatcher = new RealGazeDispatcher();
+            //GazeDispatcher gazeDispatcher = new SimulatingGazeDispatcher();
+            GazeDispatcher gazeDispatcher = new RealGazeDispatcher();
             //Runner runner = new RectangleDrawerRunner();
             Runner runner = new AnimatingTimerRunner();
             runner.start(gazeDispatcher);

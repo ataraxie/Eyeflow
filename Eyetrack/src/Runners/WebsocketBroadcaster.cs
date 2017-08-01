@@ -1,10 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-using Tobii.Interaction;
 using WebSocketSharp;
 using WebSocketSharp.Server;
 
@@ -12,13 +6,12 @@ using Eyetrack.Dispatchers;
 
 namespace Eyetrack.Runners
 {
-    public class WebsocketRunner : Runner
+    public class WebsocketBroadcaster : Runner
     {
         private static string WEBSOCKET_URL = "ws://localhost:8887";
         private static string WEBSOCKET_SERVICE_PATH = "/";
 
         private WebSocketServer server;
-        private int gazeCount = 0;
 
         public override void start(GazeDispatcher gazeDispatcher)
         {
