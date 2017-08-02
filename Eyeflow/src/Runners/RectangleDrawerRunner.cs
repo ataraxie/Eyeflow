@@ -22,7 +22,6 @@ namespace Eyeflow.Runners
 
         private void onGazeEvent(object sender, GazeEventArgs e)
         {
-            Console.WriteLine("NEW GAZE 2");
             Point point = new Point((int) e.x, (int) e.y);
             Pen pen = new Pen(Color.Beige, 2);
             IntPtr desktopPtr = WinLib.GetDC(IntPtr.Zero);

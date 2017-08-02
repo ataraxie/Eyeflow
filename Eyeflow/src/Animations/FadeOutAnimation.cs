@@ -7,6 +7,7 @@ namespace Eyeflow.Animations
 {
     public class FadeOutAnimation
     {
+        private static Logger log = Logger.get(typeof(FadeOutAnimation));
         private static Config config = Config.Instance;
 
         private IntPtr window;
@@ -27,7 +28,7 @@ namespace Eyeflow.Animations
 
         public void start()
         {
-            Console.WriteLine(this.processName + " - starting animation");
+            log.debug("starting animation for window owned by: ", this.processName);
             this.timer.Elapsed += new ElapsedEventHandler(onFadeOutTimer);
             this.timer.Interval = Config.Instance.fadeOutAnimationTimeIntervalMs;
             this.timer.Enabled = true;
@@ -35,7 +36,7 @@ namespace Eyeflow.Animations
 
         public void stop()
         {
-            Console.WriteLine(this.processName + " - stopping animation");
+            log.debug("stopping animation for window owned by: ", this.processName);
             this.onStop();
             this.timer.Stop();
             this.timer.Dispose();

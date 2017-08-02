@@ -122,5 +122,13 @@ namespace Eyeflow.Util
             SetWindowLong(handle, GWL_EXSTYLE, GetWindowLong(handle, GWL_EXSTYLE) | WS_EX_LAYERED);
             SetLayeredWindowAttributes(handle, 0, value, LWA_ALPHA);
         }
+
+        public static void setTransparency255ForAllWindows()
+        {
+            foreach (IntPtr handle in getAllTopLevelWindows()) {
+                setTransparency(handle, 255);
+            }
+        }
+
     }
 }

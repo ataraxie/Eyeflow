@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.IO;
 using System.Text;
 
@@ -6,18 +7,29 @@ namespace Eyeflow.Util
 {
     public class Logger
     {
-        public static int LEVEL_ERROR = 1;
+        public static int LEVEL_ERROR = 0;
+        public static int LEVEL_WARN = 1;
         public static int LEVEL_INFO = 2;
         public static int LEVEL_DEBUG = 3;
-        
+
+        public static string ERROR = "error";
+        public static string WARN = "warn";
+        public static string INFO = "info";
+        public static string DEBUG = "debug";
+
+        public static List<string> LEVELS = new List<string>(new string[] {
+            "error", "warn", "info", "debug"
+        });
+
         private Type type;
         private string className;
         private static FileStream FS;
+        private static int LOG_LEVEL;
 
         static Logger()
         {
-            string path = Config.Instance.logFilePath;
-            FS = File.Open(path, FileMode.Append);
+            FS = File.Open(Config.Instance.logFilePath, FileMode.Append);
+            LOG_LEVEL = LEVELS.IndexOf(Config.Instance.logLevel.ToLower());
         }
 
         public static Logger get(Type type)
@@ -38,9 +50,22 @@ namespace Eyeflow.Util
 
         public void debug(string msg, params object[] values)
         {
-            if (Config.Instance.logLevel >= LEVEL_DEBUG)
+            if (LOG_LEVEL >= LEVEL_DEBUG)
             {
-                writeLog("debug", msg, values);
+                writeLog(DEBUG, msg, values);
+            }
+        }
+
+        public void warn(string msg)
+        {
+            warn(msg, new object[0]);
+        }
+
+        public void warn(string msg, params object[] values)
+        {
+            if (LOG_LEVEL >= LEVEL_WARN)
+            {
+                writeLog(WARN, msg, values);
             }
         }
 
@@ -51,9 +76,9 @@ namespace Eyeflow.Util
 
         public void info(string msg, params object[] values)
         {
-            if (Config.Instance.logLevel >= LEVEL_INFO)
+            if (LOG_LEVEL >= LEVEL_INFO)
             {
-                writeLog("info", msg, values);
+                writeLog(INFO, msg, values);
             }
         }
 
@@ -64,9 +89,9 @@ namespace Eyeflow.Util
 
         public void error(string msg, params object[] values)
         {
-            if (Config.Instance.logLevel >= LEVEL_ERROR)
+            if (LOG_LEVEL >= LEVEL_ERROR)
             {
-                writeLog("error", msg, values);
+                writeLog(ERROR, msg, values);
             }
         }
 
@@ -77,8 +102,16 @@ namespace Eyeflow.Util
                 msg = String.Format(msg, values);
             }
             string time = DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss");
-            string logString = time + " [" + level + "] " + this.className + " | " + msg;
-            writeToFile(logString);
+            string metaInfoPrefix = time + " [" + level + "] " + this.className;
+            if (Config.Instance.logShowMetaInfo)
+            {
+                msg = time + " | " + msg;
+            }
+            writeToFile(msg);
+            if (Config.Instance.logToConsole)
+            {
+                Console.WriteLine(msg);
+            }
         }
 
         private void writeToFile(string value)

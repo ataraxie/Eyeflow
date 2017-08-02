@@ -1,0 +1,148 @@
+=== Eyeflow started ===
+BaseTimerRunner started
+Hiding process: explorer
+Hiding process: explorer
+Hiding process: chrome
+Hiding process: Eyeflow
+Hiding process: devenv
+Hiding process: Eyeflow
+Hiding process: wmplayer
+Hiding process: powershell
+Hiding process: notepad++
+Hiding process: explorer
+Hiding process: iexplore
+Hiding process: explorer
+Showing process: Eyeflow
+Showing process: explorer
+Showing process: explorer
+Showing process: chrome
+Showing process: devenv
+Showing process: Eyeflow
+Showing process: wmplayer
+Showing process: powershell
+Showing process: notepad++
+Showing process: explorer
+Showing process: iexplore
+Showing process: explorer
+=== Eyeflow started ===
+BaseTimerRunner started
+Hiding process: explorer
+Hiding process: explorer
+Hiding process: Eyeflow
+Hiding process: explorer
+Hiding process: devenv
+Hiding process: wmplayer
+Hiding process: powershell
+Hiding process: chrome
+Hiding process: notepad++
+Hiding process: iexplore
+Hiding process: explorer
+Showing process: Eyeflow
+Showing process: chrome
+Showing process: wmplayer
+Showing process: explorer
+Showing process: iexplore
+hiding window owned by process Eyeflow with animation
+hiding window owned by process chrome with animation
+hiding window owned by process wmplayer with animation
+hiding window owned by process explorer with animation
+Showing process: wmplayer
+Showing process: Eyeflow
+Showing process: chrome
+Showing process: explorer
+Showing process: powershell
+Showing process: notepad++
+hiding window owned by process chrome with animation
+hiding window owned by process Eyeflow with animation
+hiding window owned by process wmplayer with animation
+hiding window owned by process powershell with animation
+hiding window owned by process explorer with animation
+hiding window owned by process iexplore with animation
+Showing process: iexplore
+Showing process: Idle
+Showing process: explorer
+hiding window owned by process Idle with animation
+hiding window owned by process explorer with animation
+hiding window owned by process iexplore with animation
+Showing process: explorer
+Showing process: wmplayer
+Showing process: Eyeflow
+Showing process: chrome
+Showing process: explorer
+Showing process: explorer
+Showing process: iexplore
+Showing process: explorer
+Showing process: devenv
+Showing process: Idle
+Showing process: powershell
+2017-08-02 11:54:45 | === Eyeflow started ===
+2017-08-02 11:54:45 | BaseTimerRunner started
+2017-08-02 11:54:45 | Hiding process: explorer
+2017-08-02 11:54:45 | Hiding process: explorer
+2017-08-02 11:54:45 | Hiding process: Eyeflow
+2017-08-02 11:54:45 | Hiding process: devenv
+2017-08-02 11:54:45 | Hiding process: notepad++
+2017-08-02 11:54:46 | Hiding process: chrome
+2017-08-02 11:54:46 | Hiding process: wmplayer
+2017-08-02 11:54:46 | Hiding process: explorer
+2017-08-02 11:54:46 | Hiding process: powershell
+2017-08-02 11:54:46 | Hiding process: iexplore
+2017-08-02 11:54:46 | Hiding process: explorer
+2017-08-02 11:54:46 | Showing process: Eyeflow
+2017-08-02 11:54:50 | Showing process: chrome
+2017-08-02 11:54:52 | Showing process: wmplayer
+2017-08-02 11:54:52 | Showing process: iexplore
+2017-08-02 11:54:56 | Showing process: explorer
+2017-08-02 11:54:57 | Showing process: powershell
+2017-08-02 11:54:59 | hiding window owned by process chrome with animation
+2017-08-02 11:54:59 | starting animation for window owned by: 
+2017-08-02 11:54:59 | stopping animation for window owned by: 
+2017-08-02 11:54:59 | stop callback invoked for window owned by: chrome
+2017-08-02 11:55:01 | Showing process: explorer
+2017-08-02 11:55:02 | Showing process: chrome
+2017-08-02 11:55:05 | hiding window owned by process iexplore with animation
+2017-08-02 11:55:05 | starting animation for window owned by: 
+2017-08-02 11:55:05 | stopping animation for window owned by: 
+2017-08-02 11:55:05 | stop callback invoked for window owned by: iexplore
+2017-08-02 11:55:06 | hiding window owned by process powershell with animation
+2017-08-02 11:55:06 | starting animation for window owned by: 
+2017-08-02 11:55:06 | stopping animation for window owned by: 
+2017-08-02 11:55:06 | stop callback invoked for window owned by: powershell
+2017-08-02 11:55:10 | hiding window owned by process explorer with animation
+2017-08-02 11:55:10 | starting animation for window owned by: 
+2017-08-02 11:55:10 | stopping animation for window owned by: 
+2017-08-02 11:55:10 | stop callback invoked for window owned by: explorer
+2017-08-02 11:55:11 | hiding window owned by process explorer with animation
+2017-08-02 11:55:11 | starting animation for window owned by: 
+2017-08-02 11:55:11 | hiding window owned by process chrome with animation
+2017-08-02 11:55:11 | starting animation for window owned by: 
+2017-08-02 11:55:12 | stopping animation for window owned by: 
+2017-08-02 11:55:12 | stop callback invoked for window owned by: explorer
+2017-08-02 11:55:12 | hiding window owned by process wmplayer with animation
+2017-08-02 11:55:12 | stopping animation for window owned by: 
+2017-08-02 11:55:12 | stopping animation for window owned by: 
+2017-08-02 11:55:12 | stopping animation for window owned by: 
+2017-08-02 11:55:12 | stopping animation for window owned by: 
+2017-08-02 11:55:12 | stopping animation for window owned by: 
+2017-08-02 11:55:12 | stopping animation for window owned by: 
+2017-08-02 11:55:12 | starting animation for window owned by: 
+2017-08-02 11:55:12 | stop callback invoked for window owned by: explorer
+2017-08-02 11:55:12 | stop callback invoked for window owned by: chrome
+2017-08-02 11:55:12 | stop callback invoked for window owned by: chrome
+2017-08-02 11:55:12 | stop callback invoked for window owned by: chrome
+2017-08-02 11:55:12 | stop callback invoked for window owned by: explorer
+2017-08-02 11:55:12 | stop callback invoked for window owned by: chrome
+2017-08-02 11:55:12 | stopping animation for window owned by: 
+2017-08-02 11:55:12 | stop callback invoked for window owned by: chrome
+2017-08-02 11:55:13 | stopping animation for window owned by: 
+2017-08-02 11:55:13 | stop callback invoked for window owned by: wmplayer
+2017-08-02 11:55:17 | Showing process: chrome
+2017-08-02 11:55:24 | Showing process: explorer
+2017-08-02 11:55:24 | Showing process: explorer
+2017-08-02 11:55:24 | Showing process: devenv
+2017-08-02 11:55:24 | Showing process: notepad++
+2017-08-02 11:55:24 | Showing process: wmplayer
+2017-08-02 11:55:24 | Showing process: powershell
+2017-08-02 11:55:24 | Showing process: iexplore
+2017-08-02 11:55:24 | Showing process: explorer
+2017-08-02 11:55:24 | Showing process: explorer

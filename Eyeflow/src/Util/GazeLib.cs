@@ -52,10 +52,5 @@ namespace Eyeflow.Util
             g.FillRectangle(brush, rect);
             g.DrawRectangle(pen, rect);
         }
-
-        public void log(string msg)
-        {
-            Console.WriteLine(msg);
-        }
     }
 }
