@@ -2598,3 +2598,41 @@
 2017-08-03--14:18:10[info]BaseTimerRunner===>SHOW_HIDDEN:::explorer:::Start
 2017-08-03--14:18:10[info]BaseTimerRunner===>SHOW_HIDDEN:::explorer:::
 2017-08-03--14:18:10[info]BaseTimerRunner===>SHOW_HIDDEN:::devenv:::Eyeflow (Running) - Microsoft Visual Studio 
+2017-08-03--14:22:31[info]EyeflowConsoleApp===>=== EYEFLOW STARTED - WELCOME! ===
+2017-08-03--14:22:31[info]EyeflowConsoleApp===>CONFIG: {simulationMode=False,globalCheckTimerInterval=1000,runOnEveryXGazeDispatch=1,gazeTimeRequiredForHighlightMs=300,howManyHighlightedConcurrentWindows=2,windowToForegroundOnGazeAfterMs=-1,windowInactiveThresholdMs=10000,fadeOutAnimationTimeIntervalMs=20,fadeOutAnimationTransparencyInterval=10,fadeOutAnimationMinTransparency=40,drawGazePositionRectangles=False,gazePositionColor=Color [Blue],logFilePath=eyeflow.log,logLevel=info,logToConsole=True,logShowMetaInfo=True,ignoredWindowTitles=System.Collections.Generic.List`1[System.String],ignoredProcesses=System.Collections.Generic.List`1[System.String]}
+2017-08-03--14:22:34[info]BaseTimerRunner===>SHOW_HIDDEN:::Eyeflow:::C:\Users\IEUser\Dropbox\dev\dotnet\Eyeflow\Eyeflow\bin\x86\Debug\eyetrack\Eyeflow.exe
+2017-08-03--14:22:36[info]BaseTimerRunner===>SHOW_HIDDEN:::powershell:::Select Windows PowerShell
+2017-08-03--14:22:37[info]AnimatingTimerRunner===>Not hiding window Eyeflow because it's in recently queue
+2017-08-03--14:22:38[info]AnimatingTimerRunner===>Not hiding window Eyeflow because it's in recently queue
+2017-08-03--14:22:39[info]BaseTimerRunner===>SHOW_HIDDEN:::notepad++:::C:\Users\IEUser\Dropbox\dev\dotnet\Eyeflow\Eyeflow\bin\x86\Debug\eyetrack\eyeflow.log - Notepad++
+2017-08-03--14:22:39[info]AnimatingTimerRunner===>Not hiding window powershell because it's in recently queue
+2017-08-03--14:22:40[info]AnimatingTimerRunner===>Not hiding window powershell because it's in recently queue
+2017-08-03--14:22:41[info]AnimatingTimerRunner===>Not hiding window powershell because it's in recently queue
+2017-08-03--14:22:42[info]AnimatingTimerRunner===>Not hiding window powershell because it's in recently queue
+2017-08-03--14:22:43[info]AnimatingTimerRunner===>Not hiding window powershell because it's in recently queue
+2017-08-03--14:22:44[info]AnimatingTimerRunner===>Not hiding window powershell because it's in recently queue
+2017-08-03--14:22:45[info]AnimatingTimerRunner===>Not hiding window powershell because it's in recently queue
+2017-08-03--14:22:45[info]AnimatingTimerRunner===>Not hiding window powershell because it's in recently queue
+2017-08-03--14:22:46[info]AnimatingTimerRunner===>Not hiding window powershell because it's in recently queue
+2017-08-03--14:22:47[info]AnimatingTimerRunner===>Not hiding window powershell because it's in recently queue
+2017-08-03--14:22:48[info]AnimatingTimerRunner===>Not hiding window powershell because it's in recently queue
+2017-08-03--14:22:49[info]AnimatingTimerRunner===>Not hiding window powershell because it's in recently queue
+2017-08-03--14:22:50[info]AnimatingTimerRunner===>Not hiding window powershell because it's in recently queue
+2017-08-03--14:22:51[info]AnimatingTimerRunner===>Not hiding window powershell because it's in recently queue
+2017-08-03--14:22:51[info]AnimatingTimerRunner===>Not hiding window powershell because it's in recently queue
+2017-08-03--14:22:52[info]AnimatingTimerRunner===>Not hiding window powershell because it's in recently queue
+2017-08-03--14:22:53[info]AnimatingTimerRunner===>Not hiding window powershell because it's in recently queue
+2017-08-03--14:22:54[info]AnimatingTimerRunner===>Not hiding window powershell because it's in recently queue
+2017-08-03--14:22:54[info]BaseTimerRunner===>SHOW_HIDDEN:::chrome:::New Tab - Google Chrome
+2017-08-03--14:22:55[info]AnimatingTimerRunner===>Not hiding window notepad++ because it's in recently queue
+2017-08-03--14:22:55[info]AnimatingTimerRunner===>Not hiding window notepad++ because it's in recently queue
+2017-08-03--14:22:56[info]AnimatingTimerRunner===>Not hiding window notepad++ because it's in recently queue
+2017-08-03--14:22:57[info]AnimatingTimerRunner===>Not hiding window notepad++ because it's in recently queue
+2017-08-03--14:22:58[info]AnimatingTimerRunner===>Not hiding window notepad++ because it's in recently queue
+2017-08-03--14:22:58[info]BaseTimerRunner===>SHOW_HIDDEN:::Eyeflow:::C:\Users\IEUser\Dropbox\dev\dotnet\Eyeflow\Eyeflow\bin\x86\Debug\eyetrack\Eyeflow.exe
+2017-08-03--14:22:59[info]AnimatingTimerRunner===>Not hiding window chrome because it's in recently queue
+2017-08-03--14:22:59[info]EyeflowConsoleApp===>=== SHUTDOWN BY KEYPRESS ===
+2017-08-03--14:22:59[info]BaseTimerRunner===>SHOW_HIDDEN:::explorer:::Start
+2017-08-03--14:22:59[info]BaseTimerRunner===>SHOW_HIDDEN:::explorer:::
+2017-08-03--14:22:59[info]BaseTimerRunner===>SHOW_HIDDEN:::devenv:::Eyeflow (Running) - Microsoft Visual Studio 
+2017-08-03--14:22:59[info]BaseTimerRunner===>SHOW_HIDDEN:::powershell:::Select Windows PowerShell

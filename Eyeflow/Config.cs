@@ -19,7 +19,7 @@ namespace Eyeflow
         public long globalCheckTimerInterval; // 1000
         public int runOnEveryXGazeDispatch; // 1
         public int gazeTimeRequiredForHighlightMs;
-        public int howManyActiveConcurrentWindows = 1;
+        public int howManyHighlightedConcurrentWindows = 1;
 
         public int windowToForegroundOnGazeAfterMs;
         public int windowInactiveThresholdMs; // 5000;
@@ -70,7 +70,7 @@ namespace Eyeflow
             this.globalCheckTimerInterval = longFromConfig("globalCheckTimerInterval");
             this.runOnEveryXGazeDispatch = intFromConfig("runOnEveryXGazeDispatch ");
             this.gazeTimeRequiredForHighlightMs = intFromConfig("gazeTimeRequiredForHighlightMs");
-            this.howManyActiveConcurrentWindows = intFromConfig("howManyActiveConcurrentWindows");
+            this.howManyHighlightedConcurrentWindows = intFromConfig("howManyHighlightedConcurrentWindows");
             this.windowToForegroundOnGazeAfterMs = intFromConfig("windowToForegroundOnGazeAfterMs");
             this.windowInactiveThresholdMs = intFromConfig("windowInactiveThresholdMs");
             this.fadeOutAnimationTimeIntervalMs = intFromConfig("fadeOutAnimationTimeIntervalMs");

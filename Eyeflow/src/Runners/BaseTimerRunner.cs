@@ -39,7 +39,7 @@ namespace Eyeflow.Runners
         {
             log.debug("BaseTimerRunner started");
             this.windowGazeTimestamps = new Dictionary<IntPtr, long>();
-            this.recentlyActiveWindows = new FixedSizeQueue<IntPtr>(Config.Instance.howManyActiveConcurrentWindows);
+            this.recentlyActiveWindows = new FixedSizeQueue<IntPtr>(Config.Instance.howManyHighlightedConcurrentWindows);
             hideAllTopLevelWindows();
             this.gazeDispatcher = gazeDispatcher;
             this.gazeDispatcher.addEventHandler(onGazeEvent);
