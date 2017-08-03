@@ -17,7 +17,8 @@ namespace Eyeflow.Runners
         private GazeDispatcher gazeDispatcher;
         private int gazeCount = 0;
 
-        public Dictionary<IntPtr, long> windowGazeTimestamps = new Dictionary<IntPtr, long>();
+        protected Dictionary<IntPtr, long> windowGazeTimestamps;
+        protected FixedSizeQueue<IntPtr> recentlyActiveWindows;
 
         protected IntPtr currentlyActiveWindow;
         protected HashSet<IntPtr> visibleWindows = new HashSet<IntPtr>();
@@ -26,6 +27,8 @@ namespace Eyeflow.Runners
         public override void start(GazeDispatcher gazeDispatcher)
         {
             log.info("BaseTimerRunner started");
+            this.windowGazeTimestamps = new Dictionary<IntPtr, long>();
+            this.recentlyActiveWindows = new FixedSizeQueue<IntPtr>(Config.Instance.howManyActiveConcurrentWindows);
             hideAllTopLevelWindows();
             this.gazeDispatcher = gazeDispatcher;
             this.gazeDispatcher.addEventHandler(onGazeEvent);
@@ -59,10 +62,26 @@ namespace Eyeflow.Runners
             {
                 Point point = new Point((int)e.x, (int)e.y);
                 IntPtr windowAtGaze = WinLib.WindowFromPoint(point);
-                this.currentlyActiveWindow = WinLib.getTopLevelWindow(windowAtGaze);
-                long stamp = GazeLib.getTimestamp();
-                this.windowGazeTimestamps[this.currentlyActiveWindow] = stamp;
-                onNewWindowGaze(this.currentlyActiveWindow);
+                IntPtr topLevelWindowAtGaze = WinLib.getTopLevelWindow(windowAtGaze);
+                if (isTargetWindow(topLevelWindowAtGaze) && topLevelWindowAtGaze != this.currentlyActiveWindow)
+                {
+                    this.currentlyActiveWindow = topLevelWindowAtGaze;
+                    long stamp = GazeLib.getTimestamp();
+                    this.windowGazeTimestamps[this.currentlyActiveWindow] = stamp;
+                    this.recentlyActiveWindows.Enqueue(this.currentlyActiveWindow);
+                    onNewWindowGaze(this.currentlyActiveWindow);
+                }
+
+            }
+        }
+
+        private void logRecentlyQueue() // niu => remove later
+        {
+            if (this.recentlyActiveWindows.Count == 2)
+            {
+                IntPtr handle1 = this.recentlyActiveWindows.ToArray()[0];
+                IntPtr handle2 = this.recentlyActiveWindows.ToArray()[1];
+                log.warn(WinLib.getProcessName(handle1) + " - " + WinLib.getProcessName(handle2));
             }
         }
 
@@ -88,7 +107,7 @@ namespace Eyeflow.Runners
                 this.visibleWindows.Add(window);
                 this.hiddenWindows.Remove(window);
                 string processName = WinLib.getProcess(window).ProcessName;
-                log.info("Showing process: {0}", processName);
+                log.info("Showing window: {0}", WinLib.getWindowTitle(window));
                 WinLib.setTransparency(window, 255);
             }
         }
@@ -100,15 +119,15 @@ namespace Eyeflow.Runners
                 this.visibleWindows.Remove(window);
                 this.hiddenWindows.Add(window);
                 string processName = WinLib.getProcess(window).ProcessName;
-                log.info("Hiding process: {0}", processName);
+                log.info("Hiding window: {0}", processName);
                 WinLib.setTransparency(window, 50);
             }
         }
 
         private bool isTargetWindow(IntPtr window)
         {
-            Process process = WinLib.getProcess(window);
-            return !config.ignoredProcesses.Contains(process.ProcessName);
+            string windowTitle = WinLib.getWindowTitle(window);
+            return !windowTitle.Contains("Program Manager");
         }
 
     }

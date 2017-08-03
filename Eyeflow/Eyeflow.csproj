@@ -93,6 +93,7 @@
     <Compile Include="src\Runners\BaseTimerRunner.cs" />
     <Compile Include="src\GazeEventArgs.cs" />
     <Compile Include="src\Runners\RectangleDrawerRunner.cs" />
+    <Compile Include="src\Util\FixedSizeQueue.cs" />
     <Compile Include="src\Util\GazeLib.cs" />
     <Compile Include="src\Runners\WebsocketBroadcaster.cs" />
     <Compile Include="src\Util\Logger.cs" />

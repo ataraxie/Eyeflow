@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Diagnostics;
 using System.Runtime.InteropServices;
+using System.Text;
 
 using System.Collections.Generic;
 
@@ -51,6 +52,9 @@ namespace Eyeflow.Util
 
         [DllImport("User32.dll")]
         public static extern IntPtr GetDC(IntPtr hwnd);
+
+        [DllImport("user32.dll")]
+        static extern int GetWindowText(IntPtr hWnd, StringBuilder text, int count);
 
         public static IntPtr getTopLevelWindow(IntPtr window)
         {
@@ -128,6 +132,14 @@ namespace Eyeflow.Util
             foreach (IntPtr handle in getAllTopLevelWindows()) {
                 setTransparency(handle, 255);
             }
+        }
+
+        public static string getWindowTitle(IntPtr handle)
+        {
+            const int numChars = 256;
+            StringBuilder sb = new StringBuilder(numChars);
+            GetWindowText(handle, sb, numChars);
+            return sb.ToString();
         }
 
     }

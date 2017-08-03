@@ -13,6 +13,20 @@ namespace Eyeflow.Runners
         private static Config config = Config.Instance;
         private Dictionary<IntPtr, FadeOutAnimation> runningAnimations = new Dictionary<IntPtr, FadeOutAnimation>();
 
+        private void startAnimation(IntPtr window, string processName)
+        {
+            this.visibleWindows.Remove(window);
+            this.hiddenWindows.Add(window);
+            FadeOutAnimation animation = new FadeOutAnimation(window, processName, () => {
+                log.debug("stop callback invoked for window owned by: {0}", processName);
+                this.runningAnimations.Remove(window);
+                return true;
+            });
+            this.runningAnimations[window] = animation;
+            log.info("hiding window owned by process {0} with animation", processName);
+            animation.start();
+        }
+
         protected override void onTimerTick(object source, ElapsedEventArgs e)
         {
             long now = GazeLib.getTimestamp();
@@ -22,20 +36,19 @@ namespace Eyeflow.Runners
                     && this.windowGazeTimestamps.ContainsKey(window))
                 {
                     string processName = WinLib.getProcessName(window);
-                    long timeInactiveMs = now - this.windowGazeTimestamps[window];
-                    if (timeInactiveMs > config.windowInactiveThresholdMs)
+                    if (!this.recentlyActiveWindows.Contains(window))
                     {
-                        this.visibleWindows.Remove(window);
-                        this.hiddenWindows.Add(window);
-                        FadeOutAnimation animation = new FadeOutAnimation(window, processName, () => {
-                            log.debug("stop callback invoked for window owned by: {0}", processName);
-                            this.runningAnimations.Remove(window);
-                            return true;
-                        });
-                        this.runningAnimations[window] = animation;
-                        log.info("hiding window owned by process {0} with animation", processName);
-                        animation.start();
+                        long timeInactiveMs = now - this.windowGazeTimestamps[window];
+                        if (timeInactiveMs > config.windowInactiveThresholdMs)
+                        {
+                            startAnimation(window, processName);
+                        }
                     }
+                    else
+                    {
+                        log.info("Not hiding window {0} because it's in recently queue", processName);
+                    }
+
                 }
             }
         }

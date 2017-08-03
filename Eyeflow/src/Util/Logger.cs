@@ -105,7 +105,7 @@ namespace Eyeflow.Util
             string metaInfoPrefix = time + " [" + level + "] " + this.className;
             if (Config.Instance.logShowMetaInfo)
             {
-                msg = time + " | " + msg;
+                msg = metaInfoPrefix + " | " + msg;
             }
             writeToFile(msg);
             if (Config.Instance.logToConsole)

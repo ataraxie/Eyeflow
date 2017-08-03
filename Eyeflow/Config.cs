@@ -15,6 +15,7 @@ namespace Eyeflow
         // global
         public long globalCheckTimerInterval; // 1000
         public int runOnEveryXGazeDispatch; // 1
+        public int howManyActiveConcurrentWindows = 1;
 
         public bool windowToForegroundOnGaze; // true
         public int windowInactiveThresholdMs; // 5000;
@@ -35,8 +36,11 @@ namespace Eyeflow
         public bool logShowMetaInfo; // false;
 
         // processes/windows => this is not in config file (yet)
-        public List<string> ignoredProcesses = new List<string>(new string[] {
-            //"explorer", "Eyeflow"
+        public List<string> ignoredWindowTitles = new List<string>(new string[] { // niu
+            "", "Program Manager", //"explorer"//, "Eyeflow"
+        });
+        public List<string> ignoredProcesses = new List<string>(new string[] { // niu
+            "explorer", "Idle"//, "Eyeflow"
         });
 
         static Config()
@@ -60,6 +64,7 @@ namespace Eyeflow
         {
             this.globalCheckTimerInterval = longFromConfig("globalCheckTimerInterval");
             this.runOnEveryXGazeDispatch = intFromConfig("runOnEveryXGazeDispatch ");
+            this.howManyActiveConcurrentWindows = intFromConfig("howManyActiveConcurrentWindows");
             this.windowToForegroundOnGaze = boolFromConfig("windowToForegroundOnGaze");
             this.windowInactiveThresholdMs = intFromConfig("windowInactiveThresholdMs");
             this.fadeOutAnimationTimeIntervalMs = intFromConfig("fadeOutAnimationTimeIntervalMs");
