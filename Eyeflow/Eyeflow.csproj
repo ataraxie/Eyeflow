@@ -88,6 +88,7 @@
     <Compile Include="Config.cs" />
     <Compile Include="src\Dispatchers\SimulatingGazeDispatcher.cs" />
     <Compile Include="src\Dispatchers\GazeDispatcher.cs" />
+    <Compile Include="EyeflowConsoleApp.cs" />
     <Compile Include="src\Runners\AnimatingTimerRunner.cs" />
     <Compile Include="src\Dispatchers\RealGazeDispatcher.cs" />
     <Compile Include="src\Runners\BaseTimerRunner.cs" />

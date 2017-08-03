@@ -19,22 +19,12 @@ namespace Eyeflow
         {
             try
             {
-                log.info("=== Eyeflow started ===");
-                //GazeDispatcher gazeDispatcher = new SimulatingGazeDispatcher();
-                GazeDispatcher gazeDispatcher = new RealGazeDispatcher();
-                //Runner runner = new RectangleDrawerRunner();
-                Runner runner = new AnimatingTimerRunner();
-                runner.start(gazeDispatcher);
-                gazeDispatcher.start();
-                Console.ReadKey();
-                runner.stop();
-                gazeDispatcher.stop();
+                EyeflowConsoleApp.execute();
             } catch (Exception e)
             {
                 log.error("Error occurred: {0}", e.ToString());
                 WinLib.setTransparency255ForAllWindows();
             }
-
         }
     }
 }

@@ -7,7 +7,7 @@ namespace Eyeflow.Dispatchers
     {
         private event EventHandler<GazeEventArgs> GazeEvent;
 
-        Host host;
+        private Host host;
 
         public void start()
         {

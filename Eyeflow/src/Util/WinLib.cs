@@ -54,8 +54,20 @@ namespace Eyeflow.Util
         public static extern IntPtr GetDC(IntPtr hwnd);
 
         [DllImport("user32.dll")]
-        static extern int GetWindowText(IntPtr hWnd, StringBuilder text, int count);
+        public static extern int GetWindowText(IntPtr hWnd, StringBuilder text, int count);
 
+        [DllImport("Kernel32")]
+        public static extern bool SetConsoleCtrlHandler(HandlerRoutine Handler, bool Add);
+        public delegate bool HandlerRoutine(CtrlTypes CtrlType);
+        public enum CtrlTypes
+        {
+            CTRL_C_EVENT = 0,
+            CTRL_BREAK_EVENT,
+            CTRL_CLOSE_EVENT,
+            CTRL_LOGOFF_EVENT = 5,
+            CTRL_SHUTDOWN_EVENT
+        }
+        
         public static IntPtr getTopLevelWindow(IntPtr window)
         {
             if (GetParent(window) != IntPtr.Zero)

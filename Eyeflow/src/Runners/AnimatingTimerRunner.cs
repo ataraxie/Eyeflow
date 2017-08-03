@@ -27,6 +27,14 @@ namespace Eyeflow.Runners
             animation.start();
         }
 
+        private void stopAllAnimations()
+        {
+            foreach(FadeOutAnimation animation in runningAnimations.Values)
+            {
+                animation.stop();
+            }
+        }
+
         protected override void onTimerTick(object source, ElapsedEventArgs e)
         {
             long now = GazeLib.getTimestamp();
@@ -70,6 +78,9 @@ namespace Eyeflow.Runners
             }
         }
 
-
+        protected override void onStop()
+        {
+            stopAllAnimations();
+        }
     }
 }
