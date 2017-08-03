@@ -33,14 +33,3 @@ C:\Users\IEUser\Dropbox\dev\dotnet\Eyeflow\Eyeflow\bin\x86\Debug\Tobii.Interacti
 C:\Users\IEUser\Dropbox\dev\dotnet\Eyeflow\Eyeflow\bin\x86\Debug\Tobii.Interaction.Net.dll
 C:\Users\IEUser\Dropbox\dev\dotnet\Eyeflow\Eyeflow\bin\x86\Debug\websocket-sharp.dll
 C:\Users\IEUser\Dropbox\dev\dotnet\Eyeflow\Eyeflow\bin\x86\Debug\websocket-sharp.xml
-C:\Users\IEUser\Dropbox\dev\dotnet\Eyeflow\Eyeflow\bin\x86\Debug\eyetrack\Tobii.EyeX.Client.dll
-C:\Users\IEUser\Dropbox\dev\dotnet\Eyeflow\Eyeflow\bin\x86\Debug\eyetrack\Eyeflow.exe.config
-C:\Users\IEUser\Dropbox\dev\dotnet\Eyeflow\Eyeflow\bin\x86\Debug\eyetrack\Eyeflow.exe
-C:\Users\IEUser\Dropbox\dev\dotnet\Eyeflow\Eyeflow\bin\x86\Debug\eyetrack\Eyeflow.pdb
-C:\Users\IEUser\Dropbox\dev\dotnet\Eyeflow\Eyeflow\bin\x86\Debug\eyetrack\Tobii.Interaction.Model.dll
-C:\Users\IEUser\Dropbox\dev\dotnet\Eyeflow\Eyeflow\bin\x86\Debug\eyetrack\Tobii.Interaction.Net.dll
-C:\Users\IEUser\Dropbox\dev\dotnet\Eyeflow\Eyeflow\bin\x86\Debug\eyetrack\websocket-sharp.dll
-C:\Users\IEUser\Dropbox\dev\dotnet\Eyeflow\Eyeflow\bin\x86\Debug\eyetrack\websocket-sharp.xml
-C:\Users\IEUser\Dropbox\dev\dotnet\Eyeflow\Eyeflow\obj\x86\Debug\Eyeflow.exe
-C:\Users\IEUser\Dropbox\dev\dotnet\Eyeflow\Eyeflow\obj\x86\Debug\Eyeflow.pdb
-C:\Users\IEUser\Dropbox\dev\dotnet\Eyeflow\Eyeflow\obj\x86\Debug\Eyeflow.csprojResolveAssemblyReference.cache
