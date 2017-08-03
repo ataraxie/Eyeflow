@@ -23,7 +23,7 @@ namespace Eyeflow.Runners
                 return true;
             });
             this.runningAnimations[window] = animation;
-            log.info("hiding window owned by process {0} with animation", processName);
+            log.debug("hiding window owned by process {0} with animation", processName);
             animation.start();
         }
 
@@ -64,10 +64,6 @@ namespace Eyeflow.Runners
         protected override void onNewWindowGaze(IntPtr window)
         {
             showWindow(this.currentlyActiveWindow);
-            if (config.windowToForegroundOnGaze)
-            {
-                WinLib.SetForegroundWindow(this.currentlyActiveWindow);
-            }
             if (this.runningAnimations.ContainsKey(window))
             {
                 FadeOutAnimation animation = this.runningAnimations[window];
@@ -81,6 +77,19 @@ namespace Eyeflow.Runners
         protected override void onStop()
         {
             stopAllAnimations();
+        }
+
+        protected override void onSameWindowGaze(IntPtr window, long currentTimestamp)
+        {
+            if (!config.simulationMode && config.windowToForegroundOnGazeAfterMs >= 0)
+            {
+                long timeActiveMs = currentTimestamp - this.timeActivated;
+                if (timeActiveMs > config.windowToForegroundOnGazeAfterMs)
+                {
+                    log.debug("window has been active for {0}ms => bringing to foreground");
+                    WinLib.SetForegroundWindow(this.currentlyActiveWindow);
+                }
+            }
         }
     }
 }

@@ -11,6 +11,8 @@ namespace Eyeflow.Util
 {
     class WinLib
     {
+        private static Logger log = Logger.get(typeof(WinLib));
+
         [DllImport("user32.dll")]
         [return: MarshalAs(UnmanagedType.Bool)]
         public static extern bool IsWindowVisible(IntPtr handle);
@@ -97,22 +99,37 @@ namespace Eyeflow.Util
 
         public static HashSet<IntPtr> getAllTopLevelWindows()
         {
-            return new GetTopLevelWindowsAction().exec();
+            return new GetTopLevelWindowsAction(true).exec();
+        }
+
+        public static HashSet<IntPtr> getAllWindows()
+        {
+            return new GetTopLevelWindowsAction(false).exec();
         }
 
         private class GetTopLevelWindowsAction
         {
             private HashSet<IntPtr> windows = new HashSet<IntPtr>();
+            private bool onlyTopLevel;
+
+            public GetTopLevelWindowsAction(bool onlyTopLevel)
+            {
+                this.onlyTopLevel = onlyTopLevel;
+            }
+
             public HashSet<IntPtr> exec()
             {
                 EnumWindowsProc callback = new EnumWindowsProc(EnumWindowsCallback);
                 EnumWindows(callback, IntPtr.Zero);
                 return this.windows;
             }
+
             private bool EnumWindowsCallback(IntPtr window, IntPtr lParam)
             {
-                if (!this.windows.Contains(window) && WinLib.isTopLevelWindow(window))
-                this.windows.Add(window);
+                if (!this.onlyTopLevel || WinLib.isTopLevelWindow(window))
+                {
+                    this.windows.Add(window);
+                }
                 return true;
             }
         }
@@ -141,7 +158,12 @@ namespace Eyeflow.Util
 
         public static void setTransparency255ForAllWindows()
         {
-            foreach (IntPtr handle in getAllTopLevelWindows()) {
+            log.debug("setTransparency255ForAllWindows()");
+            foreach (IntPtr handle in getAllWindows()) {
+                if (Logger.DEBUG_ENABLED)
+                {
+                    log.debug("Setting transparency to 255 for window {0}", getProcessName(handle));
+                }
                 setTransparency(handle, 255);
             }
         }

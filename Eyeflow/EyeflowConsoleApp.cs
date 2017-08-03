@@ -21,7 +21,8 @@ namespace Eyeflow
         public static void execute()
         {
             handleConsole();
-            log.info("=== Eyeflow started ===");
+            log.info("=== EYEFLOW STARTED - WELCOME! ===");
+            log.info("CONFIG: " + Config.Instance.ToString());
             //GazeDispatcher gazeDispatcher = new SimulatingGazeDispatcher();
             dispatcher = new RealGazeDispatcher();
             runner = new AnimatingTimerRunner();
@@ -52,7 +53,7 @@ namespace Eyeflow
                 log.info("=== SHUTDOWN BY CTRL_CLOSE_EVENT ===");
                 exit();
             }
-            return true;
+            return false;
         }
     }
 }

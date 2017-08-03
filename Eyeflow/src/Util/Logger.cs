@@ -17,6 +17,8 @@ namespace Eyeflow.Util
         public static string INFO = "info";
         public static string DEBUG = "debug";
 
+        public static bool DEBUG_ENABLED = false;
+
         public static List<string> LEVELS = new List<string>(new string[] {
             "error", "warn", "info", "debug"
         });
@@ -30,6 +32,7 @@ namespace Eyeflow.Util
         {
             FS = File.Open(Config.Instance.logFilePath, FileMode.Append);
             LOG_LEVEL = LEVELS.IndexOf(Config.Instance.logLevel.ToLower());
+            DEBUG_ENABLED = LOG_LEVEL >= LEVEL_DEBUG;
         }
 
         public static Logger get(Type type)
@@ -41,6 +44,11 @@ namespace Eyeflow.Util
         {
             this.type = type;
             this.className = this.type.Name;
+        }
+
+        public bool isDebugEnabled()
+        {
+            return LOG_LEVEL >= LEVEL_DEBUG;
         }
 
         public void debug(string msg)
@@ -101,17 +109,19 @@ namespace Eyeflow.Util
             {
                 msg = String.Format(msg, values);
             }
-            string time = DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss");
-            string metaInfoPrefix = time + " [" + level + "] " + this.className;
-            if (Config.Instance.logShowMetaInfo)
-            {
-                msg = metaInfoPrefix + " | " + msg;
-            }
-            writeToFile(msg);
+
             if (Config.Instance.logToConsole)
             {
                 Console.WriteLine(msg);
             }
+
+            string time = DateTime.Now.ToString("yyyy-MM-dd--HH:mm:ss");
+            string metaInfoPrefix = time + "[" + level + "]" + this.className;
+            if (Config.Instance.logShowMetaInfo)
+            {
+                msg = metaInfoPrefix + "===>" + msg;
+            }
+            writeToFile(msg);
         }
 
         private void writeToFile(string value)

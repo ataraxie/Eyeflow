@@ -1,9 +1,11 @@
 ﻿using System;
+using System.Reflection;
 using System.Collections.Generic;
 using System.Collections.Specialized;
 using System.Drawing;
 using Eyeflow.Util;
 using System.Configuration;
+using System.Linq;
 
 namespace Eyeflow
 {
@@ -13,12 +15,13 @@ namespace Eyeflow
         private static Config instance;
 
         // global
+        public bool simulationMode;
         public long globalCheckTimerInterval; // 1000
         public int runOnEveryXGazeDispatch; // 1
-        public int howManyGazesRequiredForHighlight;
+        public int gazeTimeRequiredForHighlightMs;
         public int howManyActiveConcurrentWindows = 1;
 
-        public bool windowToForegroundOnGaze; // true
+        public int windowToForegroundOnGazeAfterMs;
         public int windowInactiveThresholdMs; // 5000;
 
         // animation
@@ -63,11 +66,12 @@ namespace Eyeflow
 
         private void readConfigProperties()
         {
+            this.simulationMode = boolFromConfig("simulationMode");
             this.globalCheckTimerInterval = longFromConfig("globalCheckTimerInterval");
             this.runOnEveryXGazeDispatch = intFromConfig("runOnEveryXGazeDispatch ");
-            this.howManyGazesRequiredForHighlight = intFromConfig("howManyGazesRequiredForHighlight");
+            this.gazeTimeRequiredForHighlightMs = intFromConfig("gazeTimeRequiredForHighlightMs");
             this.howManyActiveConcurrentWindows = intFromConfig("howManyActiveConcurrentWindows");
-            this.windowToForegroundOnGaze = boolFromConfig("windowToForegroundOnGaze");
+            this.windowToForegroundOnGazeAfterMs = intFromConfig("windowToForegroundOnGazeAfterMs");
             this.windowInactiveThresholdMs = intFromConfig("windowInactiveThresholdMs");
             this.fadeOutAnimationTimeIntervalMs = intFromConfig("fadeOutAnimationTimeIntervalMs");
             this.fadeOutAnimationTransparencyInterval = intFromConfig("fadeOutAnimationTransparencyInterval");
@@ -78,6 +82,17 @@ namespace Eyeflow
             this.logLevel = stringFromConfig("logLevel");
             this.logToConsole = boolFromConfig("logToConsole");
             this.logShowMetaInfo = boolFromConfig("logShowMetaInfo");
+        }
+
+        public override string ToString()
+        {
+            Dictionary<string, object> configFields = new Dictionary<string, object>();
+            foreach (FieldInfo field in this.GetType().GetFields())
+            {
+                object fieldValue = field.GetValue(this);
+                configFields.Add(field.Name, fieldValue);
+            }
+            return "{" + string.Join(",", configFields.Select(x => x.Key + "=" + x.Value)) + "}";
         }
 
         private long longFromConfig(string key)

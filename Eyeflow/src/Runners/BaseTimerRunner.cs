@@ -23,15 +23,21 @@ namespace Eyeflow.Runners
         protected FixedSizeQueue<IntPtr> recentlyActiveWindows;
 
         protected IntPtr potentialNewWindow = IntPtr.Zero;
-        protected int potentialNewWindowGazeTimes = 0;
+        protected long potentialNewWindowFirstGazeTime = 0;
         protected IntPtr currentlyActiveWindow;
+        protected long timeActivated = 0;
 
         protected HashSet<IntPtr> visibleWindows = new HashSet<IntPtr>();
         protected HashSet<IntPtr> hiddenWindows = new HashSet<IntPtr>();
 
+        protected abstract void onTimerTick(object source, ElapsedEventArgs e);
+        protected abstract void onNewWindowGaze(IntPtr window);
+        protected abstract void onSameWindowGaze(IntPtr window, long currentTimestamp);
+        protected abstract void onStop();
+
         public override void start(GazeDispatcher gazeDispatcher)
         {
-            log.info("BaseTimerRunner started");
+            log.debug("BaseTimerRunner started");
             this.windowGazeTimestamps = new Dictionary<IntPtr, long>();
             this.recentlyActiveWindows = new FixedSizeQueue<IntPtr>(Config.Instance.howManyActiveConcurrentWindows);
             hideAllTopLevelWindows();
@@ -46,10 +52,6 @@ namespace Eyeflow.Runners
             onStop();
             showAllHiddenWindows();
         }
-
-        protected abstract void onTimerTick(object source, ElapsedEventArgs e);
-        protected abstract void onNewWindowGaze(IntPtr window);
-        protected abstract void onStop();
 
         private void initTimer()
         {
@@ -68,35 +70,40 @@ namespace Eyeflow.Runners
             }
             if (this.gazeCount % config.runOnEveryXGazeDispatch == 0)
             {
+                long stamp = GazeLib.getTimestamp();
+                this.windowGazeTimestamps[this.currentlyActiveWindow] = stamp;
                 Point point = new Point((int)e.x, (int)e.y);
                 IntPtr windowAtGaze = WinLib.WindowFromPoint(point);
                 IntPtr topLevelWindowAtGaze = WinLib.getTopLevelWindow(windowAtGaze);
-                if (isTargetWindow(topLevelWindowAtGaze)
-                    && topLevelWindowAtGaze != this.currentlyActiveWindow)
+                if (isTargetWindow(topLevelWindowAtGaze) )
                 {
-                    forwardGazeIfGazedLongEnough(topLevelWindowAtGaze);
+                    if (topLevelWindowAtGaze != this.currentlyActiveWindow)
+                    {
+                        forwardGazeIfGazedLongEnough(topLevelWindowAtGaze, stamp);
+                    }
+                    else
+                    {
+                        onSameWindowGaze(topLevelWindowAtGaze, stamp);
+                    }
                 }
-
             }
         }
 
-        private void forwardGazeIfGazedLongEnough(IntPtr topLevelWindowAtGaze)
+        private void forwardGazeIfGazedLongEnough(IntPtr topLevelWindowAtGaze, long timestamp)
         {
             if (this.potentialNewWindow == topLevelWindowAtGaze)
             {
-                this.potentialNewWindowGazeTimes++;
-                if (this.potentialNewWindowGazeTimes > Config.Instance.howManyGazesRequiredForHighlight)
+                if (timestamp - this.potentialNewWindowFirstGazeTime > config.gazeTimeRequiredForHighlightMs)
                 {
                     this.currentlyActiveWindow = topLevelWindowAtGaze;
-                    long stamp = GazeLib.getTimestamp();
-                    this.windowGazeTimestamps[this.currentlyActiveWindow] = stamp;
+                    this.timeActivated = timestamp;
                     this.recentlyActiveWindows.Enqueue(this.currentlyActiveWindow);
                     onNewWindowGaze(this.currentlyActiveWindow);
                 }
             }
             else
             {
-                this.potentialNewWindowGazeTimes = 0;
+                this.potentialNewWindowFirstGazeTime = timestamp;
                 this.potentialNewWindow = topLevelWindowAtGaze;
             }
         }
@@ -128,13 +135,21 @@ namespace Eyeflow.Runners
 
         protected void showWindow(IntPtr window)
         {
-            if (isTargetWindow(window) && !this.visibleWindows.Contains(window))
+            if (isTargetWindow(window))
             {
-                this.visibleWindows.Add(window);
-                this.hiddenWindows.Remove(window);
-
-                log.info("Showing window::" + createWindowKey(window));
-                WinLib.setTransparency(window, 255);
+                if (!this.visibleWindows.Contains(window))
+                {
+                    if (!config.simulationMode)
+                    {
+                        this.visibleWindows.Add(window);
+                        this.hiddenWindows.Remove(window);
+                        WinLib.setTransparency(window, 255);
+                    }
+                    log.info("SHOW_HIDDEN:::" + createWindowKey(window));
+                } else
+                {
+                    log.info("SHOW_VISIBLE:::" + createWindowKey(window));
+                }
             }
         }
 
@@ -142,11 +157,13 @@ namespace Eyeflow.Runners
         {
             if (isTargetWindow(window) && !this.hiddenWindows.Contains(window))
             {
-                this.visibleWindows.Remove(window);
-                this.hiddenWindows.Add(window);
-                string processName = WinLib.getProcess(window).ProcessName;
-                log.info("Hiding window::" + createWindowKey(window));
-                WinLib.setTransparency(window, 50);
+                if (!config.simulationMode)
+                {
+                    this.visibleWindows.Remove(window);
+                    this.hiddenWindows.Add(window);
+                    WinLib.setTransparency(window, 50);
+                }
+                log.debug("HIDE:::" + createWindowKey(window));
             }
         }
 
