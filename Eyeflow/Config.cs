@@ -40,10 +40,10 @@ namespace Eyeflow
         public bool logShowMetaInfo; // false;
 
         // processes/windows => this is not in config file (yet)
-        public List<string> ignoredWindowTitles = new List<string>(new string[] { // niu
+        internal List<string> ignoredWindowTitles = new List<string>(new string[] { // niu
             "", "Program Manager", //"explorer"//, "Eyeflow"
         });
-        public List<string> ignoredProcesses = new List<string>(new string[] { // niu
+        internal List<string> ignoredProcesses = new List<string>(new string[] { // niu
             "explorer", "Idle"//, "Eyeflow"
         });
 
@@ -89,8 +89,11 @@ namespace Eyeflow
             Dictionary<string, object> configFields = new Dictionary<string, object>();
             foreach (FieldInfo field in this.GetType().GetFields())
             {
-                object fieldValue = field.GetValue(this);
-                configFields.Add(field.Name, fieldValue);
+                if (field.IsPublic)
+                {
+                    object fieldValue = field.GetValue(this);
+                    configFields.Add(field.Name, fieldValue);
+                }
             }
             return "{" + string.Join(",", configFields.Select(x => x.Key + "=" + x.Value)) + "}";
         }

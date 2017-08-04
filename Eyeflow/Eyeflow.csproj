@@ -77,9 +77,6 @@
     <Reference Include="Tobii.Interaction.Net, Version=0.7.3.333, Culture=neutral, PublicKeyToken=70326046dcdce6cb, processorArchitecture=MSIL">
       <HintPath>..\packages\Tobii.Interaction.0.7.3\lib\net45\Tobii.Interaction.Net.dll</HintPath>
     </Reference>
-    <Reference Include="websocket-sharp, Version=1.0.2.59611, Culture=neutral, PublicKeyToken=5660b08a1845a91e, processorArchitecture=MSIL">
-      <HintPath>..\packages\WebSocketSharp.1.0.3-rc11\lib\websocket-sharp.dll</HintPath>
-    </Reference>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Program.cs" />
@@ -93,10 +90,8 @@
     <Compile Include="src\Dispatchers\RealGazeDispatcher.cs" />
     <Compile Include="src\Runners\BaseTimerRunner.cs" />
     <Compile Include="src\GazeEventArgs.cs" />
-    <Compile Include="src\Runners\RectangleDrawerRunner.cs" />
     <Compile Include="src\Util\FixedSizeQueue.cs" />
     <Compile Include="src\Util\GazeLib.cs" />
-    <Compile Include="src\Runners\WebsocketBroadcaster.cs" />
     <Compile Include="src\Util\Logger.cs" />
     <Compile Include="src\Util\WinLib.cs" />
     <Compile Include="src\Runners\Runner.cs" />

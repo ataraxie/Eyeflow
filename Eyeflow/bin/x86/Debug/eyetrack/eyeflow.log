@@ -2636,3 +2636,20 @@
 2017-08-03--14:22:59[info]BaseTimerRunner===>SHOW_HIDDEN:::explorer:::
 2017-08-03--14:22:59[info]BaseTimerRunner===>SHOW_HIDDEN:::devenv:::Eyeflow (Running) - Microsoft Visual Studio 
 2017-08-03--14:22:59[info]BaseTimerRunner===>SHOW_HIDDEN:::powershell:::Select Windows PowerShell
+2017-08-03--16:34:18[info]EyeflowConsoleApp===>=== EYEFLOW STARTED - WELCOME! ===
+2017-08-03--16:34:18[info]EyeflowConsoleApp===>CONFIG: {simulationMode=False,globalCheckTimerInterval=1000,runOnEveryXGazeDispatch=1,gazeTimeRequiredForHighlightMs=300,howManyHighlightedConcurrentWindows=1,windowToForegroundOnGazeAfterMs=-1,windowInactiveThresholdMs=10000,fadeOutAnimationTimeIntervalMs=20,fadeOutAnimationTransparencyInterval=10,fadeOutAnimationMinTransparency=40,drawGazePositionRectangles=False,gazePositionColor=Color [Blue],logFilePath=eyeflow.log,logLevel=info,logToConsole=True,logShowMetaInfo=True}
+2017-08-03--16:34:26[info]EyeflowConsoleApp===>=== SHUTDOWN BY KEYPRESS ===
+2017-08-03--16:34:26[info]BaseTimerRunner===>SHOW_HIDDEN:::explorer:::Start
+2017-08-03--16:34:26[info]BaseTimerRunner===>SHOW_HIDDEN:::explorer:::
+2017-08-03--16:34:26[info]BaseTimerRunner===>SHOW_HIDDEN:::devenv:::Eyeflow (Running) - Microsoft Visual Studio 
+2017-08-03--16:34:26[info]BaseTimerRunner===>SHOW_HIDDEN:::notepad++:::C:\Users\IEUser\Dropbox\dev\dotnet\Eyeflow\Eyeflow\bin\x86\Debug\eyetrack\eyeflow.log - Notepad++
+2017-08-03--16:35:24[info]EyeflowConsoleApp===>=== EYEFLOW STARTED - WELCOME! ===
+2017-08-03--16:35:24[info]EyeflowConsoleApp===>CONFIG: {simulationMode=False,globalCheckTimerInterval=1000,runOnEveryXGazeDispatch=1,gazeTimeRequiredForHighlightMs=300,howManyHighlightedConcurrentWindows=1,windowToForegroundOnGazeAfterMs=-1,windowInactiveThresholdMs=10000,fadeOutAnimationTimeIntervalMs=20,fadeOutAnimationTransparencyInterval=10,fadeOutAnimationMinTransparency=40,drawGazePositionRectangles=False,gazePositionColor=Color [Blue],logFilePath=eyeflow.log,logLevel=info,logToConsole=True,logShowMetaInfo=True}
+2017-08-03--16:35:26[info]BaseTimerRunner===>SHOW_HIDDEN:::Eyeflow:::C:\Users\IEUser\Dropbox\dev\dotnet\Eyeflow\Eyeflow\bin\x86\Debug\eyetrack\Eyeflow.exe
+2017-08-03--16:35:29[info]BaseTimerRunner===>SHOW_HIDDEN:::powershell:::Select Windows PowerShell
+2017-08-03--16:35:29[info]EyeflowConsoleApp===>=== SHUTDOWN BY KEYPRESS ===
+2017-08-03--16:35:29[info]BaseTimerRunner===>SHOW_HIDDEN:::explorer:::Start
+2017-08-03--16:35:29[info]BaseTimerRunner===>SHOW_HIDDEN:::explorer:::
+2017-08-03--16:35:29[info]BaseTimerRunner===>SHOW_HIDDEN:::devenv:::Eyeflow (Running) - Microsoft Visual Studio 
+2017-08-03--16:35:29[info]BaseTimerRunner===>SHOW_HIDDEN:::notepad++:::C:\Users\IEUser\Dropbox\dev\dotnet\Eyeflow\Eyeflow\bin\x86\Debug\eyetrack\eyeflow.log - Notepad++
+2017-08-03--16:35:29[info]BaseTimerRunner===>SHOW_HIDDEN:::chrome:::Compiling and Building in Visual Studio - Google Chrome

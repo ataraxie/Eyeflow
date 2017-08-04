@@ -54,7 +54,7 @@ namespace Eyeflow.Runners
                     }
                     else
                     {
-                        log.info("Not hiding window {0} because it's in recently queue", processName);
+                        log.debug("Not hiding window {0} because it's in recently queue", processName);
                     }
 
                 }
