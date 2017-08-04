@@ -28,7 +28,6 @@ namespace Eyeflow.Runners
         protected long timeActivated = 0;
 
         protected HashSet<IntPtr> visibleWindows = new HashSet<IntPtr>();
-        protected HashSet<IntPtr> hiddenWindows = new HashSet<IntPtr>();
 
         protected abstract void onTimerTick(object source, ElapsedEventArgs e);
         protected abstract void onNewWindowGaze(IntPtr window);
@@ -40,7 +39,6 @@ namespace Eyeflow.Runners
             log.debug("BaseTimerRunner started");
             this.windowGazeTimestamps = new Dictionary<IntPtr, long>();
             this.recentlyActiveWindows = new FixedSizeQueue<IntPtr>(Config.Instance.howManyHighlightedConcurrentWindows);
-            hideAllTopLevelWindows();
             this.gazeDispatcher = gazeDispatcher;
             this.gazeDispatcher.addEventHandler(onGazeEvent);
             initTimer();
@@ -50,7 +48,7 @@ namespace Eyeflow.Runners
         {
             this.globalTimer.Stop();
             onStop();
-            showAllHiddenWindows();
+            WinLib.setTransparency255ForAllWindows();
         }
 
         private void initTimer()
@@ -118,52 +116,16 @@ namespace Eyeflow.Runners
             }
         }
 
-        private void hideAllTopLevelWindows()
-        {
-            foreach (IntPtr window in WinLib.getAllTopLevelWindows()) {
-                hideWindow(window);
-            }
-        }
-
-        private void showAllHiddenWindows()
-        {
-            foreach (IntPtr window in this.hiddenWindows.ToList())
-            {
-                showWindow(window);
-            }
-        }
-
         protected void showWindow(IntPtr window)
         {
             if (isTargetWindow(window))
             {
-                if (!this.visibleWindows.Contains(window))
-                {
-                    if (!config.simulationMode)
-                    {
-                        this.visibleWindows.Add(window);
-                        this.hiddenWindows.Remove(window);
-                        WinLib.setTransparency(window, 255);
-                    }
-                    log.info("SHOW_HIDDEN:::" + createWindowKey(window));
-                } else
-                {
-                    log.info("SHOW_VISIBLE:::" + createWindowKey(window));
-                }
-            }
-        }
-
-        private void hideWindow(IntPtr window)
-        {
-            if (isTargetWindow(window) && !this.hiddenWindows.Contains(window))
-            {
                 if (!config.simulationMode)
                 {
-                    this.visibleWindows.Remove(window);
-                    this.hiddenWindows.Add(window);
-                    WinLib.setTransparency(window, 50);
+                    this.visibleWindows.Add(window);
+                    WinLib.setTransparency(window, 255);
                 }
-                log.debug("HIDE:::" + createWindowKey(window));
+                log.info("SHOW:::" + createWindowKey(window));
             }
         }
 

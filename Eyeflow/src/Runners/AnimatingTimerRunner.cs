@@ -16,10 +16,10 @@ namespace Eyeflow.Runners
         private void startAnimation(IntPtr window, string processName)
         {
             this.visibleWindows.Remove(window);
-            this.hiddenWindows.Add(window);
             FadeOutAnimation animation = new FadeOutAnimation(window, processName, () => {
                 log.debug("stop callback invoked for window owned by: {0}", processName);
                 this.runningAnimations.Remove(window);
+                this.visibleWindows.Remove(window);
                 return true;
             });
             this.runningAnimations[window] = animation;

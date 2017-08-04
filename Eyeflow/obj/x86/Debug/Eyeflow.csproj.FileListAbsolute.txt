@@ -41,3 +41,4 @@ C:\Users\IEUser\Dropbox\dev\dotnet\Eyeflow\Eyeflow\bin\x86\Debug\eyetrack\Tobii.
 C:\Users\IEUser\Dropbox\dev\dotnet\Eyeflow\Eyeflow\bin\x86\Debug\eyetrack\Tobii.Interaction.Net.dll
 C:\Users\IEUser\Dropbox\dev\dotnet\Eyeflow\Eyeflow\obj\x86\Debug\Eyeflow.exe
 C:\Users\IEUser\Dropbox\dev\dotnet\Eyeflow\Eyeflow\obj\x86\Debug\Eyeflow.pdb
+C:\Users\IEUser\Dropbox\dev\dotnet\Eyeflow\Eyeflow\obj\x86\Debug\Eyeflow.csprojResolveAssemblyReference.cache
