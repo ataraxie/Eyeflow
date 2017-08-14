@@ -20,6 +20,7 @@ namespace Eyeflow
         public int runOnEveryXGazeDispatch; // 1
         public int gazeTimeRequiredForHighlightMs;
         public int howManyHighlightedConcurrentWindows = 1;
+        public bool enableForTaskBar = true;
 
         public int windowToForegroundOnGazeAfterMs;
         public int windowInactiveThresholdMs; // 5000;
@@ -66,6 +67,7 @@ namespace Eyeflow
 
         private void readConfigProperties()
         {
+            this.enableForTaskBar = boolFromConfig("enableForTaskBar");
             this.simulationMode = boolFromConfig("simulationMode");
             this.globalCheckTimerInterval = longFromConfig("globalCheckTimerInterval");
             this.runOnEveryXGazeDispatch = intFromConfig("runOnEveryXGazeDispatch ");

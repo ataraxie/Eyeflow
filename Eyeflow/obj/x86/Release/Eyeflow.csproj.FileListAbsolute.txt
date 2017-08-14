@@ -6,4 +6,3 @@ C:\Users\IEUser\Dropbox\dev\dotnet\Eyeflow\Eyeflow\bin\x86\Release\Tobii.Interac
 C:\Users\IEUser\Dropbox\dev\dotnet\Eyeflow\Eyeflow\bin\x86\Release\Tobii.Interaction.Net.dll
 C:\Users\IEUser\Dropbox\dev\dotnet\Eyeflow\Eyeflow\obj\x86\Release\Eyeflow.exe
 C:\Users\IEUser\Dropbox\dev\dotnet\Eyeflow\Eyeflow\obj\x86\Release\Eyeflow.pdb
-C:\Users\IEUser\Dropbox\dev\dotnet\Eyeflow\Eyeflow\obj\x86\Release\Eyeflow.csprojResolveAssemblyReference.cache

@@ -2914,3 +2914,177 @@
 2017-08-04--13:32:40[info]BaseTimerRunner===>SHOW:::iexplore:::- Microsoft Edge Development - Internet Explorer
 2017-08-04--13:32:41[info]EyeflowConsoleApp===>=== SHUTDOWN BY KEYPRESS ===
 2017-08-04--13:32:41[info]BaseTimerRunner===>SHOW:::Eyeflow:::C:\Users\IEUser\Dropbox\dev\dotnet\Eyeflow\Eyeflow\bin\x86\Debug\eyetrack\Eyeflow.exe
+2017-08-14--13:56:22[info]EyeflowConsoleApp===>=== EYEFLOW STARTED - WELCOME! ===
+2017-08-14--13:56:22[info]EyeflowConsoleApp===>CONFIG: {simulationMode=False,globalCheckTimerInterval=1000,runOnEveryXGazeDispatch=1,gazeTimeRequiredForHighlightMs=300,howManyHighlightedConcurrentWindows=1,windowToForegroundOnGazeAfterMs=2000,windowInactiveThresholdMs=8000,fadeOutAnimationTimeIntervalMs=20,fadeOutAnimationTransparencyInterval=10,fadeOutAnimationMinTransparency=60,drawGazePositionRectangles=False,gazePositionColor=Color [Blue],logFilePath=eyeflow.log,logLevel=info,logToConsole=True,logShowMetaInfo=True}
+2017-08-14--13:56:23[info]BaseTimerRunner===>SHOW:::Eyeflow:::C:\Users\IEUser\Dropbox\dev\dotnet\Eyeflow\Eyeflow\bin\x86\Debug\eyetrack\Eyeflow.exe
+2017-08-14--13:56:27[info]BaseTimerRunner===>SHOW:::devenv:::Eyeflow (Running) - Microsoft Visual Studio 
+2017-08-14--13:56:28[info]BaseTimerRunner===>SHOW:::explorer:::Libraries
+2017-08-14--13:56:28[info]BaseTimerRunner===>SHOW:::Eyeflow:::C:\Users\IEUser\Dropbox\dev\dotnet\Eyeflow\Eyeflow\bin\x86\Debug\eyetrack\Eyeflow.exe
+2017-08-14--13:56:31[info]BaseTimerRunner===>SHOW:::explorer:::Libraries
+2017-08-14--13:56:32[info]BaseTimerRunner===>SHOW:::Eyeflow:::C:\Users\IEUser\Dropbox\dev\dotnet\Eyeflow\Eyeflow\bin\x86\Debug\eyetrack\Eyeflow.exe
+2017-08-14--13:56:34[info]BaseTimerRunner===>SHOW:::notepad:::Untitled - Notepad
+2017-08-14--13:56:36[info]BaseTimerRunner===>SHOW:::Eyeflow:::C:\Users\IEUser\Dropbox\dev\dotnet\Eyeflow\Eyeflow\bin\x86\Debug\eyetrack\Eyeflow.exe
+2017-08-14--13:56:54[info]BaseTimerRunner===>SHOW:::explorer:::Libraries
+2017-08-14--13:56:56[info]BaseTimerRunner===>SHOW:::explorer:::
+2017-08-14--13:56:57[info]BaseTimerRunner===>SHOW:::Eyeflow:::C:\Users\IEUser\Dropbox\dev\dotnet\Eyeflow\Eyeflow\bin\x86\Debug\eyetrack\Eyeflow.exe
+2017-08-14--13:57:07[info]BaseTimerRunner===>SHOW:::explorer:::Libraries
+2017-08-14--13:57:10[info]BaseTimerRunner===>SHOW:::notepad:::Untitled - Notepad
+2017-08-14--13:57:11[info]BaseTimerRunner===>SHOW:::explorer:::
+2017-08-14--13:57:12[info]BaseTimerRunner===>SHOW:::Eyeflow:::C:\Users\IEUser\Dropbox\dev\dotnet\Eyeflow\Eyeflow\bin\x86\Debug\eyetrack\Eyeflow.exe
+2017-08-14--13:57:15[info]BaseTimerRunner===>SHOW:::iexplore:::- Microsoft Edge Development - Internet Explorer
+2017-08-14--13:57:15[info]EyeflowConsoleApp===>=== SHUTDOWN BY KEYPRESS ===
+2017-08-14--14:08:57[info]EyeflowConsoleApp===>=== EYEFLOW STARTED - WELCOME! ===
+2017-08-14--14:08:57[info]EyeflowConsoleApp===>CONFIG: {simulationMode=False,globalCheckTimerInterval=1000,runOnEveryXGazeDispatch=1,gazeTimeRequiredForHighlightMs=300,howManyHighlightedConcurrentWindows=1,enableForTaskBar=True,windowToForegroundOnGazeAfterMs=2000,windowInactiveThresholdMs=8000,fadeOutAnimationTimeIntervalMs=20,fadeOutAnimationTransparencyInterval=10,fadeOutAnimationMinTransparency=60,drawGazePositionRectangles=False,gazePositionColor=Color [Blue],logFilePath=eyeflow.log,logLevel=info,logToConsole=True,logShowMetaInfo=True}
+2017-08-14--14:08:59[info]BaseTimerRunner===>SHOW:::Eyeflow:::C:\Users\IEUser\Dropbox\dev\dotnet\Eyeflow\Eyeflow\bin\x86\Debug\eyetrack\Eyeflow.exe
+2017-08-14--14:09:03[info]BaseTimerRunner===>SHOW:::devenv:::Eyeflow (Running) - Microsoft Visual Studio 
+2017-08-14--14:09:03[info]BaseTimerRunner===>SHOW:::Eyeflow:::C:\Users\IEUser\Dropbox\dev\dotnet\Eyeflow\Eyeflow\bin\x86\Debug\eyetrack\Eyeflow.exe
+2017-08-14--14:09:06[info]BaseTimerRunner===>SHOW:::notepad:::Untitled - Notepad
+2017-08-14--14:09:06[info]BaseTimerRunner===>SHOW:::Eyeflow:::C:\Users\IEUser\Dropbox\dev\dotnet\Eyeflow\Eyeflow\bin\x86\Debug\eyetrack\Eyeflow.exe
+2017-08-14--14:09:08[info]BaseTimerRunner===>SHOW:::notepad:::Untitled - Notepad
+2017-08-14--14:09:09[info]BaseTimerRunner===>SHOW:::Eyeflow:::C:\Users\IEUser\Dropbox\dev\dotnet\Eyeflow\Eyeflow\bin\x86\Debug\eyetrack\Eyeflow.exe
+2017-08-14--14:09:13[info]BaseTimerRunner===>SHOW:::notepad:::Untitled - Notepad
+2017-08-14--14:09:13[info]BaseTimerRunner===>SHOW:::Eyeflow:::C:\Users\IEUser\Dropbox\dev\dotnet\Eyeflow\Eyeflow\bin\x86\Debug\eyetrack\Eyeflow.exe
+2017-08-14--14:09:16[info]BaseTimerRunner===>SHOW:::notepad:::Untitled - Notepad
+2017-08-14--14:09:16[info]BaseTimerRunner===>SHOW:::Eyeflow:::C:\Users\IEUser\Dropbox\dev\dotnet\Eyeflow\Eyeflow\bin\x86\Debug\eyetrack\Eyeflow.exe
+2017-08-14--14:09:24[info]BaseTimerRunner===>SHOW:::devenv:::Eyeflow (Running) - Microsoft Visual Studio 
+2017-08-14--14:09:25[info]BaseTimerRunner===>SHOW:::Eyeflow:::C:\Users\IEUser\Dropbox\dev\dotnet\Eyeflow\Eyeflow\bin\x86\Debug\eyetrack\Eyeflow.exe
+2017-08-14--14:09:27[info]BaseTimerRunner===>SHOW:::notepad:::Untitled - Notepad
+2017-08-14--14:09:29[info]BaseTimerRunner===>SHOW:::Eyeflow:::C:\Users\IEUser\Dropbox\dev\dotnet\Eyeflow\Eyeflow\bin\x86\Debug\eyetrack\Eyeflow.exe
+2017-08-14--14:09:29[info]BaseTimerRunner===>SHOW:::notepad:::Untitled - Notepad
+2017-08-14--14:09:32[info]BaseTimerRunner===>SHOW:::Eyeflow:::C:\Users\IEUser\Dropbox\dev\dotnet\Eyeflow\Eyeflow\bin\x86\Debug\eyetrack\Eyeflow.exe
+2017-08-14--14:09:36[info]BaseTimerRunner===>SHOW:::iexplore:::- Microsoft Edge Development - Internet Explorer
+2017-08-14--14:09:37[info]BaseTimerRunner===>SHOW:::notepad++:::C:\Wallpaper\autologon.bat - Notepad++
+2017-08-14--14:09:37[info]BaseTimerRunner===>SHOW:::powershell:::Windows PowerShell
+2017-08-14--14:09:38[info]BaseTimerRunner===>SHOW:::chrome:::New Tab - Google Chrome
+2017-08-14--14:09:39[info]BaseTimerRunner===>SHOW:::explorer:::Libraries
+2017-08-14--14:09:40[info]BaseTimerRunner===>SHOW:::iexplore:::- Microsoft Edge Development - Internet Explorer
+2017-08-14--14:09:41[info]BaseTimerRunner===>SHOW:::notepad++:::C:\Wallpaper\autologon.bat - Notepad++
+2017-08-14--14:09:42[info]BaseTimerRunner===>SHOW:::powershell:::Windows PowerShell
+2017-08-14--14:09:43[info]BaseTimerRunner===>SHOW:::Eyeflow:::C:\Users\IEUser\Dropbox\dev\dotnet\Eyeflow\Eyeflow\bin\x86\Debug\eyetrack\Eyeflow.exe
+2017-08-14--14:09:44[info]BaseTimerRunner===>SHOW:::explorer:::Libraries
+2017-08-14--14:09:45[info]BaseTimerRunner===>SHOW:::Eyeflow:::C:\Users\IEUser\Dropbox\dev\dotnet\Eyeflow\Eyeflow\bin\x86\Debug\eyetrack\Eyeflow.exe
+2017-08-14--14:10:06[info]BaseTimerRunner===>SHOW:::explorer:::Libraries
+2017-08-14--14:10:07[info]BaseTimerRunner===>SHOW:::Eyeflow:::C:\Users\IEUser\Dropbox\dev\dotnet\Eyeflow\Eyeflow\bin\x86\Debug\eyetrack\Eyeflow.exe
+2017-08-14--14:10:07[info]BaseTimerRunner===>SHOW:::explorer:::Libraries
+2017-08-14--14:10:10[info]BaseTimerRunner===>SHOW:::notepad:::Untitled - Notepad
+2017-08-14--14:10:12[info]BaseTimerRunner===>SHOW:::Eyeflow:::C:\Users\IEUser\Dropbox\dev\dotnet\Eyeflow\Eyeflow\bin\x86\Debug\eyetrack\Eyeflow.exe
+2017-08-14--14:10:14[info]BaseTimerRunner===>SHOW:::notepad:::Untitled - Notepad
+2017-08-14--14:10:16[info]BaseTimerRunner===>SHOW:::Eyeflow:::C:\Users\IEUser\Dropbox\dev\dotnet\Eyeflow\Eyeflow\bin\x86\Debug\eyetrack\Eyeflow.exe
+2017-08-14--14:10:16[info]BaseTimerRunner===>SHOW:::notepad:::Untitled - Notepad
+2017-08-14--14:10:19[info]BaseTimerRunner===>SHOW:::Eyeflow:::C:\Users\IEUser\Dropbox\dev\dotnet\Eyeflow\Eyeflow\bin\x86\Debug\eyetrack\Eyeflow.exe
+2017-08-14--14:10:23[info]BaseTimerRunner===>SHOW:::devenv:::Eyeflow (Running) - Microsoft Visual Studio 
+2017-08-14--14:10:43[info]BaseTimerRunner===>SHOW:::iexplore:::- Microsoft Edge Development - Internet Explorer
+2017-08-14--14:10:44[info]BaseTimerRunner===>SHOW:::devenv:::Eyeflow (Running) - Microsoft Visual Studio 
+2017-08-14--14:10:53[info]BaseTimerRunner===>SHOW:::iexplore:::- Microsoft Edge Development - Internet Explorer
+2017-08-14--14:11:19[info]BaseTimerRunner===>SHOW:::Eyeflow:::C:\Users\IEUser\Dropbox\dev\dotnet\Eyeflow\Eyeflow\bin\x86\Debug\eyetrack\Eyeflow.exe
+2017-08-14--14:11:19[info]BaseTimerRunner===>SHOW:::notepad++:::C:\Wallpaper\autologon.bat - Notepad++
+2017-08-14--14:11:20[info]BaseTimerRunner===>SHOW:::notepad:::Untitled - Notepad
+2017-08-14--14:11:21[info]BaseTimerRunner===>SHOW:::explorer:::Libraries
+2017-08-14--14:11:22[info]BaseTimerRunner===>SHOW:::explorer:::
+2017-08-14--14:11:23[info]BaseTimerRunner===>SHOW:::explorer:::Libraries
+2017-08-14--14:11:24[info]BaseTimerRunner===>SHOW:::notepad++:::C:\Wallpaper\autologon.bat - Notepad++
+2017-08-14--14:11:33[info]BaseTimerRunner===>SHOW:::explorer:::Libraries
+2017-08-14--14:11:35[info]BaseTimerRunner===>SHOW:::explorer:::
+2017-08-14--14:11:35[info]BaseTimerRunner===>SHOW:::explorer:::Libraries
+2017-08-14--14:11:36[info]BaseTimerRunner===>SHOW:::explorer:::
+2017-08-14--14:11:41[info]BaseTimerRunner===>SHOW:::devenv:::Eyeflow (Running) - Microsoft Visual Studio 
+2017-08-14--14:11:52[info]BaseTimerRunner===>SHOW:::iexplore:::- Microsoft Edge Development - Internet Explorer
+2017-08-14--14:11:52[info]BaseTimerRunner===>SHOW:::notepad++:::C:\Wallpaper\autologon.bat - Notepad++
+2017-08-14--14:11:54[info]BaseTimerRunner===>SHOW:::iexplore:::- Microsoft Edge Development - Internet Explorer
+2017-08-14--14:11:57[info]BaseTimerRunner===>SHOW:::notepad++:::C:\Wallpaper\autologon.bat - Notepad++
+2017-08-14--14:11:58[info]BaseTimerRunner===>SHOW:::iexplore:::- Microsoft Edge Development - Internet Explorer
+2017-08-14--14:11:59[info]BaseTimerRunner===>SHOW:::Eyeflow:::C:\Users\IEUser\Dropbox\dev\dotnet\Eyeflow\Eyeflow\bin\x86\Debug\eyetrack\Eyeflow.exe
+2017-08-14--14:12:02[info]EyeflowConsoleApp===>=== SHUTDOWN BY KEYPRESS ===
+2017-08-14--14:12:12[info]EyeflowConsoleApp===>=== EYEFLOW STARTED - WELCOME! ===
+2017-08-14--14:12:12[info]EyeflowConsoleApp===>CONFIG: {simulationMode=False,globalCheckTimerInterval=1000,runOnEveryXGazeDispatch=1,gazeTimeRequiredForHighlightMs=300,howManyHighlightedConcurrentWindows=1,enableForTaskBar=False,windowToForegroundOnGazeAfterMs=1000,windowInactiveThresholdMs=7000,fadeOutAnimationTimeIntervalMs=20,fadeOutAnimationTransparencyInterval=10,fadeOutAnimationMinTransparency=60,drawGazePositionRectangles=False,gazePositionColor=Color [Blue],logFilePath=eyeflow.log,logLevel=info,logToConsole=True,logShowMetaInfo=True}
+2017-08-14--14:12:13[info]BaseTimerRunner===>SHOW:::Eyeflow:::C:\Users\IEUser\Dropbox\dev\dotnet\Eyeflow\Eyeflow\bin\x86\Debug\eyetrack\Eyeflow.exe
+2017-08-14--14:12:17[info]BaseTimerRunner===>SHOW:::notepad++:::C:\Wallpaper\autologon.bat - Notepad++
+2017-08-14--14:12:17[info]BaseTimerRunner===>SHOW:::Eyeflow:::C:\Users\IEUser\Dropbox\dev\dotnet\Eyeflow\Eyeflow\bin\x86\Debug\eyetrack\Eyeflow.exe
+2017-08-14--14:12:20[info]BaseTimerRunner===>SHOW:::chrome:::New Tab - Google Chrome
+2017-08-14--14:12:21[info]BaseTimerRunner===>SHOW:::notepad:::Untitled - Notepad
+2017-08-14--14:12:22[info]BaseTimerRunner===>SHOW:::explorer:::Libraries
+2017-08-14--14:12:24[info]BaseTimerRunner===>SHOW:::notepad++:::C:\Wallpaper\autologon.bat - Notepad++
+2017-08-14--14:12:25[info]BaseTimerRunner===>SHOW:::iexplore:::- Microsoft Edge Development - Internet Explorer
+2017-08-14--14:12:26[info]BaseTimerRunner===>SHOW:::powershell:::Windows PowerShell
+2017-08-14--14:12:28[info]BaseTimerRunner===>SHOW:::notepad++:::C:\Wallpaper\autologon.bat - Notepad++
+2017-08-14--14:12:28[info]BaseTimerRunner===>SHOW:::Eyeflow:::C:\Users\IEUser\Dropbox\dev\dotnet\Eyeflow\Eyeflow\bin\x86\Debug\eyetrack\Eyeflow.exe
+2017-08-14--14:12:31[info]BaseTimerRunner===>SHOW:::explorer:::Libraries
+2017-08-14--14:12:33[info]BaseTimerRunner===>SHOW:::Eyeflow:::C:\Users\IEUser\Dropbox\dev\dotnet\Eyeflow\Eyeflow\bin\x86\Debug\eyetrack\Eyeflow.exe
+2017-08-14--14:12:33[info]BaseTimerRunner===>SHOW:::explorer:::Libraries
+2017-08-14--14:12:34[info]BaseTimerRunner===>SHOW:::Eyeflow:::C:\Users\IEUser\Dropbox\dev\dotnet\Eyeflow\Eyeflow\bin\x86\Debug\eyetrack\Eyeflow.exe
+2017-08-14--14:12:39[info]BaseTimerRunner===>SHOW:::Idle:::
+2017-08-14--14:12:44[info]BaseTimerRunner===>SHOW:::explorer:::Libraries
+2017-08-14--14:12:46[info]BaseTimerRunner===>SHOW:::Eyeflow:::C:\Users\IEUser\Dropbox\dev\dotnet\Eyeflow\Eyeflow\bin\x86\Debug\eyetrack\Eyeflow.exe
+2017-08-14--14:13:09[info]BaseTimerRunner===>SHOW:::explorer:::Libraries
+2017-08-14--14:13:11[info]BaseTimerRunner===>SHOW:::Eyeflow:::C:\Users\IEUser\Dropbox\dev\dotnet\Eyeflow\Eyeflow\bin\x86\Debug\eyetrack\Eyeflow.exe
+2017-08-14--14:13:13[info]BaseTimerRunner===>SHOW:::explorer:::Libraries
+2017-08-14--14:13:13[info]BaseTimerRunner===>SHOW:::notepad:::Untitled - Notepad
+2017-08-14--14:13:18[info]BaseTimerRunner===>SHOW:::Eyeflow:::C:\Users\IEUser\Dropbox\dev\dotnet\Eyeflow\Eyeflow\bin\x86\Debug\eyetrack\Eyeflow.exe
+2017-08-14--14:13:24[info]BaseTimerRunner===>SHOW:::chrome:::New Tab - Google Chrome
+2017-08-14--14:13:24[info]BaseTimerRunner===>SHOW:::notepad:::Untitled - Notepad
+2017-08-14--14:13:28[info]BaseTimerRunner===>SHOW:::Idle:::
+2017-08-14--14:13:30[info]BaseTimerRunner===>SHOW:::notepad:::Untitled - Notepad
+2017-08-14--14:13:31[info]BaseTimerRunner===>SHOW:::Idle:::
+2017-08-14--14:13:31[info]BaseTimerRunner===>SHOW:::notepad:::Untitled - Notepad
+2017-08-14--14:13:32[info]BaseTimerRunner===>SHOW:::Eyeflow:::C:\Users\IEUser\Dropbox\dev\dotnet\Eyeflow\Eyeflow\bin\x86\Debug\eyetrack\Eyeflow.exe
+2017-08-14--14:13:48[info]BaseTimerRunner===>SHOW:::notepad:::Untitled - Notepad
+2017-08-14--14:13:49[info]BaseTimerRunner===>SHOW:::explorer:::Libraries
+2017-08-14--14:13:49[info]BaseTimerRunner===>SHOW:::notepad:::Untitled - Notepad
+2017-08-14--14:13:50[info]BaseTimerRunner===>SHOW:::explorer:::Libraries
+2017-08-14--14:13:57[info]BaseTimerRunner===>SHOW:::Idle:::
+2017-08-14--14:13:57[info]BaseTimerRunner===>SHOW:::Eyeflow:::C:\Users\IEUser\Dropbox\dev\dotnet\Eyeflow\Eyeflow\bin\x86\Debug\eyetrack\Eyeflow.exe
+2017-08-14--14:14:03[info]BaseTimerRunner===>SHOW:::iexplore:::- Microsoft Edge Development - Internet Explorer
+2017-08-14--14:14:04[info]BaseTimerRunner===>SHOW:::Eyeflow:::C:\Users\IEUser\Dropbox\dev\dotnet\Eyeflow\Eyeflow\bin\x86\Debug\eyetrack\Eyeflow.exe
+2017-08-14--14:14:05[info]BaseTimerRunner===>SHOW:::iexplore:::- Microsoft Edge Development - Internet Explorer
+2017-08-14--14:14:06[info]BaseTimerRunner===>SHOW:::Eyeflow:::C:\Users\IEUser\Dropbox\dev\dotnet\Eyeflow\Eyeflow\bin\x86\Debug\eyetrack\Eyeflow.exe
+2017-08-14--14:14:06[info]EyeflowConsoleApp===>=== SHUTDOWN BY KEYPRESS ===
+2017-08-14--14:14:12[info]EyeflowConsoleApp===>=== EYEFLOW STARTED - WELCOME! ===
+2017-08-14--14:14:12[info]EyeflowConsoleApp===>CONFIG: {simulationMode=False,globalCheckTimerInterval=1000,runOnEveryXGazeDispatch=1,gazeTimeRequiredForHighlightMs=300,howManyHighlightedConcurrentWindows=1,enableForTaskBar=False,windowToForegroundOnGazeAfterMs=1000,windowInactiveThresholdMs=7000,fadeOutAnimationTimeIntervalMs=20,fadeOutAnimationTransparencyInterval=10,fadeOutAnimationMinTransparency=60,drawGazePositionRectangles=False,gazePositionColor=Color [Blue],logFilePath=eyeflow.log,logLevel=info,logToConsole=True,logShowMetaInfo=True}
+2017-08-14--14:14:13[info]BaseTimerRunner===>SHOW:::Eyeflow:::C:\Users\IEUser\Dropbox\dev\dotnet\Eyeflow\Eyeflow\bin\x86\Debug\eyetrack\Eyeflow.exe
+2017-08-14--14:14:20[info]BaseTimerRunner===>SHOW:::explorer:::Libraries
+2017-08-14--14:14:20[info]BaseTimerRunner===>SHOW:::Eyeflow:::C:\Users\IEUser\Dropbox\dev\dotnet\Eyeflow\Eyeflow\bin\x86\Debug\eyetrack\Eyeflow.exe
+2017-08-14--14:14:21[info]BaseTimerRunner===>SHOW:::explorer:::Libraries
+2017-08-14--14:14:21[info]BaseTimerRunner===>SHOW:::notepad:::Untitled - Notepad
+2017-08-14--14:14:22[info]BaseTimerRunner===>SHOW:::chrome:::New Tab - Google Chrome
+2017-08-14--14:14:23[info]BaseTimerRunner===>SHOW:::powershell:::Windows PowerShell
+2017-08-14--14:14:24[info]BaseTimerRunner===>SHOW:::notepad++:::C:\Wallpaper\autologon.bat - Notepad++
+2017-08-14--14:14:25[info]BaseTimerRunner===>SHOW:::Eyeflow:::C:\Users\IEUser\Dropbox\dev\dotnet\Eyeflow\Eyeflow\bin\x86\Debug\eyetrack\Eyeflow.exe
+2017-08-14--14:14:26[info]BaseTimerRunner===>SHOW:::iexplore:::- Microsoft Edge Development - Internet Explorer
+2017-08-14--14:14:27[info]BaseTimerRunner===>SHOW:::explorer:::Libraries
+2017-08-14--14:14:28[info]BaseTimerRunner===>SHOW:::Eyeflow:::C:\Users\IEUser\Dropbox\dev\dotnet\Eyeflow\Eyeflow\bin\x86\Debug\eyetrack\Eyeflow.exe
+2017-08-14--14:14:32[info]BaseTimerRunner===>SHOW:::notepad:::Untitled - Notepad
+2017-08-14--14:14:34[info]BaseTimerRunner===>SHOW:::explorer:::Libraries
+2017-08-14--14:14:35[info]BaseTimerRunner===>SHOW:::Eyeflow:::C:\Users\IEUser\Dropbox\dev\dotnet\Eyeflow\Eyeflow\bin\x86\Debug\eyetrack\Eyeflow.exe
+2017-08-14--14:14:40[info]BaseTimerRunner===>SHOW:::notepad:::Untitled - Notepad
+2017-08-14--14:14:45[info]BaseTimerRunner===>SHOW:::Eyeflow:::C:\Users\IEUser\Dropbox\dev\dotnet\Eyeflow\Eyeflow\bin\x86\Debug\eyetrack\Eyeflow.exe
+2017-08-14--14:14:46[info]BaseTimerRunner===>SHOW:::notepad:::Untitled - Notepad
+2017-08-14--14:14:51[info]BaseTimerRunner===>SHOW:::Eyeflow:::C:\Users\IEUser\Dropbox\dev\dotnet\Eyeflow\Eyeflow\bin\x86\Debug\eyetrack\Eyeflow.exe
+2017-08-14--14:14:58[info]EyeflowConsoleApp===>=== SHUTDOWN BY KEYPRESS ===
+2017-08-14--14:14:58[error]Program===>Error occurred: System.InvalidOperationException: Collection was modified; enumeration operation may not execute.
+   at System.ThrowHelper.ThrowInvalidOperationException(ExceptionResource resource)
+   at System.Collections.Generic.Dictionary`2.ValueCollection.Enumerator.MoveNext()
+   at Eyeflow.Runners.AnimatingTimerRunner.stopAllAnimations() in C:\Users\IEUser\Dropbox\dev\dotnet\Eyeflow\Eyeflow\src\Runners\AnimatingTimerRunner.cs:line 32
+   at Eyeflow.Runners.AnimatingTimerRunner.onStop() in C:\Users\IEUser\Dropbox\dev\dotnet\Eyeflow\Eyeflow\src\Runners\AnimatingTimerRunner.cs:line 79
+   at Eyeflow.Runners.BaseTimerRunner.stop() in C:\Users\IEUser\Dropbox\dev\dotnet\Eyeflow\Eyeflow\src\Runners\BaseTimerRunner.cs:line 50
+   at Eyeflow.EyeflowConsoleApp.exit() in C:\Users\IEUser\Dropbox\dev\dotnet\Eyeflow\Eyeflow\EyeflowConsoleApp.cs:line 39
+   at Eyeflow.EyeflowConsoleApp.execute() in C:\Users\IEUser\Dropbox\dev\dotnet\Eyeflow\Eyeflow\EyeflowConsoleApp.cs:line 33
+   at Eyeflow.Program.Main(String[] args) in C:\Users\IEUser\Dropbox\dev\dotnet\Eyeflow\Eyeflow\Program.cs:line 14
+2017-08-14--14:15:18[info]EyeflowConsoleApp===>=== EYEFLOW STARTED - WELCOME! ===
+2017-08-14--14:15:18[info]EyeflowConsoleApp===>CONFIG: {simulationMode=False,globalCheckTimerInterval=1000,runOnEveryXGazeDispatch=1,gazeTimeRequiredForHighlightMs=300,howManyHighlightedConcurrentWindows=1,enableForTaskBar=True,windowToForegroundOnGazeAfterMs=1000,windowInactiveThresholdMs=7000,fadeOutAnimationTimeIntervalMs=20,fadeOutAnimationTransparencyInterval=10,fadeOutAnimationMinTransparency=60,drawGazePositionRectangles=False,gazePositionColor=Color [Blue],logFilePath=eyeflow.log,logLevel=info,logToConsole=True,logShowMetaInfo=True}
+2017-08-14--14:15:19[info]BaseTimerRunner===>SHOW:::Eyeflow:::C:\Users\IEUser\Dropbox\dev\dotnet\Eyeflow\Eyeflow\bin\x86\Debug\eyetrack\Eyeflow.exe
+2017-08-14--14:15:22[info]BaseTimerRunner===>SHOW:::explorer:::Libraries
+2017-08-14--14:15:23[info]BaseTimerRunner===>SHOW:::chrome:::New Tab - Google Chrome
+2017-08-14--14:15:24[info]BaseTimerRunner===>SHOW:::notepad:::Untitled - Notepad
+2017-08-14--14:15:26[info]BaseTimerRunner===>SHOW:::Eyeflow:::C:\Users\IEUser\Dropbox\dev\dotnet\Eyeflow\Eyeflow\bin\x86\Debug\eyetrack\Eyeflow.exe
+2017-08-14--14:15:29[info]BaseTimerRunner===>SHOW:::notepad:::Untitled - Notepad
+2017-08-14--14:15:30[info]BaseTimerRunner===>SHOW:::explorer:::Libraries
+2017-08-14--14:15:31[info]BaseTimerRunner===>SHOW:::explorer:::
+2017-08-14--14:15:33[info]BaseTimerRunner===>SHOW:::explorer:::Libraries
+2017-08-14--14:15:33[info]BaseTimerRunner===>SHOW:::Eyeflow:::C:\Users\IEUser\Dropbox\dev\dotnet\Eyeflow\Eyeflow\bin\x86\Debug\eyetrack\Eyeflow.exe
+2017-08-14--14:15:44[info]BaseTimerRunner===>SHOW:::explorer:::Libraries
+2017-08-14--14:15:45[info]BaseTimerRunner===>SHOW:::Eyeflow:::C:\Users\IEUser\Dropbox\dev\dotnet\Eyeflow\Eyeflow\bin\x86\Debug\eyetrack\Eyeflow.exe
+2017-08-14--14:15:46[info]EyeflowConsoleApp===>=== SHUTDOWN BY KEYPRESS ===
+2017-08-14--14:38:39[info]EyeflowConsoleApp===>=== EYEFLOW STARTED - WELCOME! ===
+2017-08-14--14:38:39[info]EyeflowConsoleApp===>CONFIG: {simulationMode=False,globalCheckTimerInterval=1000,runOnEveryXGazeDispatch=1,gazeTimeRequiredForHighlightMs=300,howManyHighlightedConcurrentWindows=1,enableForTaskBar=True,windowToForegroundOnGazeAfterMs=1000,windowInactiveThresholdMs=7000,fadeOutAnimationTimeIntervalMs=20,fadeOutAnimationTransparencyInterval=10,fadeOutAnimationMinTransparency=60,drawGazePositionRectangles=False,gazePositionColor=Color [Blue],logFilePath=eyeflow.log,logLevel=info,logToConsole=True,logShowMetaInfo=True}
+2017-08-14--14:38:41[info]BaseTimerRunner===>SHOW:::Eyeflow:::C:\Users\IEUser\Dropbox\dev\dotnet\Eyeflow\Eyeflow\bin\x86\Debug\eyetrack\Eyeflow.exe
+2017-08-14--14:38:42[info]EyeflowConsoleApp===>=== SHUTDOWN BY KEYPRESS ===
