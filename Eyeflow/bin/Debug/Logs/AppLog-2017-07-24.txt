@@ -1,4 +1,0 @@
-[Debug][7/24/2017 11:28:25 AM] Please type the process name of the window you want to attach to, e.g 'notepad.
-[Debug][7/24/2017 11:28:25 AM] Note: If there is more than one process found, the first will be used.
-[Warning][7/24/2017 11:28:47 AM] No process by the name of   was found.
-[Warning][7/24/2017 11:28:47 AM] Please open one or use a different name and restart the demo.
