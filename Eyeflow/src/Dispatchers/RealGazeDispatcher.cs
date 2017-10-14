@@ -1,5 +1,6 @@
 ﻿using System;
 using Tobii.Interaction;
+using Eyeflow.Events;
 
 namespace Eyeflow.Dispatchers
 {
@@ -29,5 +30,6 @@ namespace Eyeflow.Dispatchers
         {
             GazeEvent(this, new GazeEventArgs(x, y, timestamp));
         }
+
     }
 }

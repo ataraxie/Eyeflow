@@ -1,0 +1,24 @@
+﻿<Properties StartupConfiguration="{04256CEE-D861-4122-B83E-7F57BC610F3F}|Default">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Eyeflow/src/Runners/Runner.cs">
+    <Files>
+      <File FileName="Eyeflow/src/Util/WinLib.cs" Line="56" Column="42" />
+      <File FileName="Eyeflow/src/Util/GazeLib.cs" Line="1" Column="1" />
+      <File FileName="Eyeflow/src/Animations/FadeOutAnimation.cs" Line="1" Column="1" />
+      <File FileName="Eyeflow/src/Dispatchers/GazeDispatcher.cs" Line="9" Column="67" />
+      <File FileName="Eyeflow/src/Dispatchers/RealGazeDispatcher.cs" Line="20" Column="19" />
+      <File FileName="Eyeflow/src/Dispatchers/SimulatingGazeDispatcher.cs" Line="1" Column="1" />
+      <File FileName="Eyeflow/src/Runners/AnimatingTimerRunner.cs" Line="1" Column="1" />
+      <File FileName="Eyeflow/src/Runners/BaseTimerRunner.cs" Line="1" Column="1" />
+      <File FileName="Eyeflow/src/Runners/Runner.cs" Line="11" Column="1" />
+      <File FileName="Eyeflow/src/Util/FixedSizeQueue.cs" Line="1" Column="1" />
+      <File FileName="Eyeflow/src/Util/Logger.cs" Line="1" Column="1" />
+    </Files>
+  </MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore />
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+  <MultiItemStartupConfigurations />
+  <MonoDevelop.Ide.ItemProperties.Eyeflow PreferredExecutionTarget="MonoDevelop.Default" />
+</Properties>

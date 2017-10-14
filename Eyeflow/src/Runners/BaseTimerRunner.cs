@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Timers;
 using Eyeflow.Util;
 using Eyeflow.Dispatchers;
+using Eyeflow.Events;
 
 namespace Eyeflow.Runners
 {
@@ -34,13 +35,17 @@ namespace Eyeflow.Runners
         protected abstract void onSameWindowGaze(IntPtr window, long currentTimestamp);
         protected abstract void onStop();
 
-        public override void start(GazeDispatcher gazeDispatcher)
+        public BaseTimerRunner(GazeDispatcher gazeDispatcher)
+        {
+            this.gazeDispatcher = gazeDispatcher;
+            this.gazeDispatcher.addEventHandler(onGazeEvent);
+        } 
+
+        public override void start()
         {
             log.debug("BaseTimerRunner started");
             this.windowGazeTimestamps = new Dictionary<IntPtr, long>();
             this.recentlyActiveWindows = new FixedSizeQueue<IntPtr>(Config.Instance.howManyHighlightedConcurrentWindows);
-            this.gazeDispatcher = gazeDispatcher;
-            this.gazeDispatcher.addEventHandler(onGazeEvent);
             initTimer();
         }
 

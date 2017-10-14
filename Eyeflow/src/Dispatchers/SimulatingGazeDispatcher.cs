@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Timers;
 using Eyeflow.Util;
+using Eyeflow.Events;
 
 namespace Eyeflow.Dispatchers
 {

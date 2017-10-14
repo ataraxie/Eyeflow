@@ -4,6 +4,7 @@ using System.Linq;
 using System.Timers;
 using Eyeflow.Animations;
 using Eyeflow.Util;
+using Eyeflow.Dispatchers;
 
 namespace Eyeflow.Runners
 {
@@ -12,6 +13,10 @@ namespace Eyeflow.Runners
         private static Logger log = Logger.get(typeof(AnimatingTimerRunner));
         private static Config config = Config.Instance;
         private Dictionary<IntPtr, FadeOutAnimation> runningAnimations = new Dictionary<IntPtr, FadeOutAnimation>();
+
+        public AnimatingTimerRunner(GazeDispatcher gazeDispatcher) : base(gazeDispatcher)
+        {
+        }
 
         private void startAnimation(IntPtr window, string processName)
         {

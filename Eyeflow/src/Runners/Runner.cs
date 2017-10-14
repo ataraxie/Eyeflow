@@ -4,7 +4,7 @@ namespace Eyeflow
 {
     public abstract class Runner
     {
-        abstract public void start(GazeDispatcher gazeDispatcher);
+        abstract public void start();
         abstract public void stop();
     }
 }

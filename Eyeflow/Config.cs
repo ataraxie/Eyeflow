@@ -15,6 +15,7 @@ namespace Eyeflow
         private static Config instance;
 
         // global
+        public bool dataCollectionMode;
         public bool simulationMode;
         public long globalCheckTimerInterval; // 1000
         public int runOnEveryXGazeDispatch; // 1
@@ -39,6 +40,9 @@ namespace Eyeflow
         public string logLevel;
         public bool logToConsole; // true;
         public bool logShowMetaInfo; // false;
+
+        // sqlite
+        public string databaseFilePath;
 
         // processes/windows => this is not in config file (yet)
         internal List<string> ignoredWindowTitles = new List<string>(new string[] { // niu
@@ -68,6 +72,7 @@ namespace Eyeflow
         private void readConfigProperties()
         {
             this.enableForTaskBar = boolFromConfig("enableForTaskBar");
+            this.dataCollectionMode = boolFromConfig("dataCollectionMode");
             this.simulationMode = boolFromConfig("simulationMode");
             this.globalCheckTimerInterval = longFromConfig("globalCheckTimerInterval");
             this.runOnEveryXGazeDispatch = intFromConfig("runOnEveryXGazeDispatch ");
@@ -84,6 +89,7 @@ namespace Eyeflow
             this.logLevel = stringFromConfig("logLevel");
             this.logToConsole = boolFromConfig("logToConsole");
             this.logShowMetaInfo = boolFromConfig("logShowMetaInfo");
+            this.databaseFilePath = stringFromConfig("databaseFilePath");
         }
 
         public override string ToString()

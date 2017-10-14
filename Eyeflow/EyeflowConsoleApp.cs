@@ -15,7 +15,8 @@ namespace Eyeflow
         private static Logger log = Logger.get(typeof(EyeflowConsoleApp));
 
         private static Runner runner;
-        private static GazeDispatcher dispatcher;
+        private static GazeDispatcher gazeDispatcher;
+        private static WindowDispatcher windowDispatcher;
         private static WinLib.HandlerRoutine consoleHandler;
 
         public static void execute()
@@ -23,11 +24,21 @@ namespace Eyeflow
             handleConsole();
             log.info("=== EYEFLOW STARTED - WELCOME! ===");
             log.info("CONFIG: " + Config.Instance.ToString());
-            //GazeDispatcher gazeDispatcher = new SimulatingGazeDispatcher();
-            dispatcher = new RealGazeDispatcher();
-            runner = new AnimatingTimerRunner();
-            runner.start(dispatcher);
-            dispatcher.start();
+            gazeDispatcher = new RealGazeDispatcher();
+            windowDispatcher = new WindowDispatcher();
+            if (Config.Instance.dataCollectionMode)
+            {   
+                runner = new DataCollectionRunner(gazeDispatcher, windowDispatcher);
+                runner.start();
+                windowDispatcher.start();
+                gazeDispatcher.start();
+            }
+            else
+            {
+                runner = new AnimatingTimerRunner(gazeDispatcher);
+                runner.start();
+                gazeDispatcher.start();
+            }
             Console.ReadKey();
             log.info("=== SHUTDOWN BY KEYPRESS ===");
             exit();
@@ -35,9 +46,12 @@ namespace Eyeflow
 
         private static void exit()
         {
-            WinLib.setTransparency255ForAllWindows();
+            if (!Config.Instance.dataCollectionMode && ! Config.Instance.simulationMode)
+            {
+                WinLib.setTransparency255ForAllWindows();
+            }
             runner.stop();
-            dispatcher.stop();
+            gazeDispatcher.stop();
         }
 
         private static void handleConsole()
