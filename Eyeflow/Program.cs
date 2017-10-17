@@ -15,7 +15,10 @@ namespace Eyeflow
             } catch (Exception e)
             {
                 log.error("Error occurred: {0}", e.ToString());
-                WinLib.setTransparency255ForAllWindows();
+                if (!Config.Instance.dataCollectionMode && !Config.Instance.simulationMode)
+                {
+                    WinLib.setTransparency255ForAllWindows();
+                }
             }
         }
     }

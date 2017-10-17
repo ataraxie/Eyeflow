@@ -77,7 +77,9 @@ namespace Eyeflow.Runners
 
         private void onWindowEvent(object sender, WindowEventArgs e)
         {
-
+            // create DWM record
+            // create many Window records
+            //WinLib.getAllWindows();
         }
 
     }
