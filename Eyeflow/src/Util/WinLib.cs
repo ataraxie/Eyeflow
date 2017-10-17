@@ -69,7 +69,7 @@ namespace Eyeflow.Util
             CTRL_LOGOFF_EVENT = 5,
             CTRL_SHUTDOWN_EVENT
         }
-        
+
         public static IntPtr getTopLevelWindow(IntPtr window)
         {
             if (GetParent(window) != IntPtr.Zero)
