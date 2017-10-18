@@ -39,6 +39,8 @@ namespace Eyeflow.Services
             }
             this.connection = new SQLiteConnection(Config.Instance.databaseFilePath);
             this.connection.CreateTable<GazeRecord>();
+            this.connection.CreateTable<DwmRecord>();
+            this.connection.CreateTable<WindowRecord>();
         }
 
         public void disconnect()
@@ -47,11 +49,18 @@ namespace Eyeflow.Services
             this.connection.Close();
         }
 
-        public void writeGazeRecord(GazeRecord gaze)
+        public int writeGazeRecord(GazeRecord gaze)
         {
             checkDbCreated();
-            int uuid = this.connection.Insert(gaze);
+            return this.connection.Insert(gaze);
         }
+
+        public int writeDwmRecord(DwmRecord dwm)
+        {
+            checkDbCreated();
+            return this.connection.Insert(dwm);
+        }
+
 
         private void checkDbCreated()
         {

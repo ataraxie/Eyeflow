@@ -9,6 +9,7 @@ using Eyeflow.Dispatchers;
 using Eyeflow.Entities;
 using Eyeflow.Services;
 using Eyeflow.Events;
+using System.Windows.Forms;
 
 namespace Eyeflow.Runners
 {
@@ -77,7 +78,24 @@ namespace Eyeflow.Runners
 
         private void onWindowEvent(object sender, WindowEventArgs e)
         {
-            // create DWM record
+            DwmRecord dwmRecord = new DwmRecord();
+            dwmRecord.Timestamp = GazeLib.getTimestamp();
+            dwmRecord.Event = "DUMMY_EVENT";
+            dwmRecord.NumMonitors = Screen.AllScreens.Length;
+
+            int dwmUuid = DatabaseService.Instance.writeDwmRecord(dwmRecord);
+            foreach (IntPtr windowHandle in WinLib.getAllTopLevelWindows()) 
+            {
+                if (GazeLib.isTargetWindow(windowHandle))
+                {
+                    string processName = WinLib.getProcessName(windowHandle);
+                    string windowTitle = WinLib.getWindowTitle(windowHandle);
+                    // CONTINUE HERE
+                    
+                }
+            }
+
+            
             // create many Window records
             //WinLib.getAllWindows();
         }

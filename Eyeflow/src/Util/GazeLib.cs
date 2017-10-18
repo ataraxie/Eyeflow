@@ -52,5 +52,13 @@ namespace Eyeflow.Util
             g.FillRectangle(brush, rect);
             g.DrawRectangle(pen, rect);
         }
+
+        public static bool isTargetWindow(IntPtr window)
+        {
+            string processName = WinLib.getProcessName(window);
+            string windowTitle = WinLib.getWindowTitle(window);
+            return !windowTitle.Contains("Program Manager") && !String.IsNullOrEmpty(windowTitle)
+                && !(processName == "explorer" && !Config.Instance.enableForTaskBar);
+        }
     }
 }

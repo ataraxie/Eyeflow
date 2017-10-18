@@ -19,6 +19,7 @@ namespace Eyeflow
                 {
                     WinLib.setTransparency255ForAllWindows();
                 }
+                Console.ReadLine();
             }
         }
     }

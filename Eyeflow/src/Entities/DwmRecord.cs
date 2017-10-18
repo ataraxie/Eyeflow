@@ -5,7 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using SQLite;
 
-namespace Eyeflow.src.Entities
+namespace Eyeflow.Entities
 {
     class DwmRecord
     {

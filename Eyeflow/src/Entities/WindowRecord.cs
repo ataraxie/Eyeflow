@@ -29,5 +29,6 @@ namespace Eyeflow.Entities
         public bool IsMaximized { get; set; }
         public bool IsNormal { get; set; }
         public bool OnMonitor { get; set; }
+
     }
 }

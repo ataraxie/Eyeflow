@@ -78,7 +78,7 @@ namespace Eyeflow.Runners
                 Point point = new Point((int)e.x, (int)e.y);
                 IntPtr windowAtGaze = WinLib.WindowFromPoint(point);
                 IntPtr topLevelWindowAtGaze = WinLib.getTopLevelWindow(windowAtGaze);
-                if (isTargetWindow(topLevelWindowAtGaze))
+                if (GazeLib.isTargetWindow(topLevelWindowAtGaze))
                 {
                     if (topLevelWindowAtGaze != this.currentlyActiveWindow)
                     {
@@ -123,7 +123,7 @@ namespace Eyeflow.Runners
 
         protected void showWindow(IntPtr window)
         {
-            if (isTargetWindow(window))
+            if (GazeLib.isTargetWindow(window))
             {
                 if (!config.simulationMode)
                 {
@@ -139,14 +139,6 @@ namespace Eyeflow.Runners
             string processName = WinLib.getProcess(window).ProcessName;
             string windowTitle = WinLib.getWindowTitle(window);
             return processName + ":::" + windowTitle;
-        }
-
-        private bool isTargetWindow(IntPtr window)
-        {
-            string processName = WinLib.getProcessName(window);
-            string windowTitle = WinLib.getWindowTitle(window);
-            return !windowTitle.Contains("Program Manager")
-                && !(processName == "explorer" && windowTitle == "" && !Config.Instance.enableForTaskBar);
         }
 
     }

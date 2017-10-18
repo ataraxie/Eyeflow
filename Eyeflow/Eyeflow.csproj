@@ -112,7 +112,9 @@
     <Compile Include="src\Dispatchers\GazeDispatcher.cs" />
     <Compile Include="src\Dispatchers\SimulatingGazeDispatcher.cs" />
     <Compile Include="EyeflowConsoleApp.cs" />
+    <Compile Include="src\Entities\DwmRecord.cs" />
     <Compile Include="src\Entities\GazeRecord.cs" />
+    <Compile Include="src\Entities\WindowRecord.cs" />
     <Compile Include="src\Events\WindowEventArgs.cs" />
     <Compile Include="src\Runners\AnimatingTimerRunner.cs" />
     <Compile Include="src\Dispatchers\RealGazeDispatcher.cs" />
