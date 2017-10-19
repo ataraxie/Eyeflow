@@ -133,19 +133,19 @@ namespace Eyeflow.Util
             return getProcess(window).ProcessName;
         }
 
-        public static HashSet<WindowInfo> getAllTopLevelWindows()
+        public static HashSet<IntPtr> getAllTopLevelWindows()
         {
             return new GetTopLevelWindowsAction(true).exec();
         }
 
-        public static HashSet<WindowInfo> getAllWindows()
+        public static HashSet<IntPtr> getAllWindows()
         {
             return new GetTopLevelWindowsAction(false).exec();
         }
 
         private class GetTopLevelWindowsAction
         {
-            private HashSet<WindowInfo> windows = new HashSet<WindowInfo>();
+            private HashSet<IntPtr> windows = new HashSet<IntPtr>();
             private bool onlyTopLevel;
 
             public GetTopLevelWindowsAction(bool onlyTopLevel)
@@ -153,7 +153,7 @@ namespace Eyeflow.Util
                 this.onlyTopLevel = onlyTopLevel;
             }
 
-            public HashSet<WindowInfo> exec()
+            public HashSet<IntPtr> exec()
             {
                 EnumWindowsProc callback = new EnumWindowsProc(EnumWindowsCallback);
                 EnumWindows(callback, IntPtr.Zero);
@@ -164,7 +164,7 @@ namespace Eyeflow.Util
             {
                 if (!this.onlyTopLevel || WinLib.isTopLevelWindow(window))
                 {
-                    this.windows.Add(new WindowInfo(window));
+                    this.windows.Add(window);
                 }
                 return true;
             }
@@ -195,12 +195,12 @@ namespace Eyeflow.Util
         public static void setTransparency255ForAllWindows()
         {
             log.debug("setTransparency255ForAllWindows()");
-            foreach (WindowInfo windowInfo in getAllWindows()) {
+            foreach (IntPtr windowHandle in getAllWindows()) {
                 if (Logger.DEBUG_ENABLED)
                 {
-                    log.debug("Setting transparency to 255 for window {0}", getProcessName(windowInfo.handle));
+                    log.debug("Setting transparency to 255 for window {0}", getProcessName(windowHandle));
                 }
-                setTransparency(windowInfo.handle, 255);
+                setTransparency(windowHandle, 255);
             }
         }
 

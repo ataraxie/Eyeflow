@@ -125,7 +125,6 @@
     <Compile Include="src\Util\FixedSizeQueue.cs" />
     <Compile Include="src\Util\GazeLib.cs" />
     <Compile Include="src\Util\Logger.cs" />
-    <Compile Include="src\Util\WindowInfo.cs" />
     <Compile Include="src\Util\WinLib.cs" />
     <Compile Include="src\Runners\Runner.cs" />
   </ItemGroup>

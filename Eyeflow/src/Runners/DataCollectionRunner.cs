@@ -85,14 +85,13 @@ namespace Eyeflow.Runners
             dwmRecord.NumMonitors = Screen.AllScreens.Length;
 
             int dwmUuid = DatabaseService.Instance.writeDwmRecord(dwmRecord);
-            HashSet<WindowInfo> allTopLevelWindows = WinLib.getAllTopLevelWindows();
+            HashSet<IntPtr> allTopLevelWindows = WinLib.getAllTopLevelWindows();
             int index = allTopLevelWindows.Count;
-            foreach (WindowInfo windowInfo in allTopLevelWindows) 
+            foreach (IntPtr windowHandle in allTopLevelWindows) 
             {
                 index--;
-                if (GazeLib.isTargetWindow(windowInfo.handle))
+                if (GazeLib.isTargetWindow(windowHandle))
                 {
-                    IntPtr windowHandle = windowInfo.handle;
                     string processName = WinLib.getProcessName(windowHandle);
                     string windowTitle = WinLib.getWindowTitle(windowHandle);
                     Rectangle rect = WinLib.getWindowRectangle(windowHandle);
