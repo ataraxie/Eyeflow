@@ -16,5 +16,10 @@ namespace Eyeflow.Util
         public bool IsMinimized { get; set; }
         public bool IsMaximized { get; set; }
         public bool IsNormal { get; set; }
+
+        public WindowInfo(IntPtr handle)
+        {
+            this.handle = handle;
+        }
     }
 }

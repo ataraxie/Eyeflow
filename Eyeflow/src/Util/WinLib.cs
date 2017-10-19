@@ -164,17 +164,10 @@ namespace Eyeflow.Util
             {
                 if (!this.onlyTopLevel || WinLib.isTopLevelWindow(window))
                 {
-                    this.windows.Add(WinLib.createWindowInfoFromHandle(window));
+                    this.windows.Add(new WindowInfo(window));
                 }
                 return true;
             }
-        }
-
-        public static WindowInfo createWindowInfoFromHandle(IntPtr handle)
-        {
-            WindowInfo windowInfo = new WindowInfo();
-            windowInfo.handle = handle;
-            return windowInfo;
         }
 
         public static bool isTopLevelWindow(IntPtr window)
