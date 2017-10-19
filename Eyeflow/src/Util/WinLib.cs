@@ -58,6 +58,35 @@ namespace Eyeflow.Util
         [DllImport("user32.dll")]
         public static extern int GetWindowText(IntPtr hWnd, StringBuilder text, int count);
 
+        [DllImport("user32.dll", SetLastError = true)]
+        [return: MarshalAs(UnmanagedType.Bool)]
+        internal static extern bool GetWindowPlacement(IntPtr hWnd, ref WINDOWPLACEMENT lpwndpl);
+        private static WINDOWPLACEMENT GetPlacement(IntPtr hwnd)
+        {
+            WINDOWPLACEMENT placement = new WINDOWPLACEMENT();
+            placement.length = Marshal.SizeOf(placement);
+            GetWindowPlacement(hwnd, ref placement);
+            return placement;
+        }
+        [Serializable]
+        [StructLayout(LayoutKind.Sequential)]
+        internal struct WINDOWPLACEMENT
+        {
+            public int length;
+            public int flags;
+            public int showCmd;
+            public System.Drawing.Point ptMinPosition;
+            public System.Drawing.Point ptMaxPosition;
+            public System.Drawing.Rectangle rcNormalPosition;
+        }
+        public enum WindowStatus : int
+        {
+            Hide = 0,
+            Normal = 1,
+            Minimized = 2,
+            Maximized = 3,
+        }
+
         [DllImport("Kernel32")]
         public static extern bool SetConsoleCtrlHandler(HandlerRoutine Handler, bool Add);
         public delegate bool HandlerRoutine(CtrlTypes CtrlType);
@@ -68,6 +97,13 @@ namespace Eyeflow.Util
             CTRL_CLOSE_EVENT,
             CTRL_LOGOFF_EVENT = 5,
             CTRL_SHUTDOWN_EVENT
+        }
+
+        public static Rectangle getWindowRectangle(IntPtr window)
+        {
+            Rectangle rect;
+            GetWindowRect(window, out rect);
+            return rect;
         }
 
         public static IntPtr getTopLevelWindow(IntPtr window)
@@ -97,19 +133,19 @@ namespace Eyeflow.Util
             return getProcess(window).ProcessName;
         }
 
-        public static HashSet<IntPtr> getAllTopLevelWindows()
+        public static HashSet<WindowInfo> getAllTopLevelWindows()
         {
             return new GetTopLevelWindowsAction(true).exec();
         }
 
-        public static HashSet<IntPtr> getAllWindows()
+        public static HashSet<WindowInfo> getAllWindows()
         {
             return new GetTopLevelWindowsAction(false).exec();
         }
 
         private class GetTopLevelWindowsAction
         {
-            private HashSet<IntPtr> windows = new HashSet<IntPtr>();
+            private HashSet<WindowInfo> windows = new HashSet<WindowInfo>();
             private bool onlyTopLevel;
 
             public GetTopLevelWindowsAction(bool onlyTopLevel)
@@ -117,7 +153,7 @@ namespace Eyeflow.Util
                 this.onlyTopLevel = onlyTopLevel;
             }
 
-            public HashSet<IntPtr> exec()
+            public HashSet<WindowInfo> exec()
             {
                 EnumWindowsProc callback = new EnumWindowsProc(EnumWindowsCallback);
                 EnumWindows(callback, IntPtr.Zero);
@@ -128,10 +164,17 @@ namespace Eyeflow.Util
             {
                 if (!this.onlyTopLevel || WinLib.isTopLevelWindow(window))
                 {
-                    this.windows.Add(window);
+                    this.windows.Add(WinLib.createWindowInfoFromHandle(window));
                 }
                 return true;
             }
+        }
+
+        public static WindowInfo createWindowInfoFromHandle(IntPtr handle)
+        {
+            WindowInfo windowInfo = new WindowInfo();
+            windowInfo.handle = handle;
+            return windowInfo;
         }
 
         public static bool isTopLevelWindow(IntPtr window)
@@ -159,12 +202,12 @@ namespace Eyeflow.Util
         public static void setTransparency255ForAllWindows()
         {
             log.debug("setTransparency255ForAllWindows()");
-            foreach (IntPtr handle in getAllWindows()) {
+            foreach (WindowInfo windowInfo in getAllWindows()) {
                 if (Logger.DEBUG_ENABLED)
                 {
-                    log.debug("Setting transparency to 255 for window {0}", getProcessName(handle));
+                    log.debug("Setting transparency to 255 for window {0}", getProcessName(windowInfo.handle));
                 }
-                setTransparency(handle, 255);
+                setTransparency(windowInfo.handle, 255);
             }
         }
 
@@ -176,5 +219,13 @@ namespace Eyeflow.Util
             return sb.ToString();
         }
 
+        public static int getWindowStatus(IntPtr window)
+        {
+            WINDOWPLACEMENT placement = GetPlacement(window);
+            return placement.showCmd;
+        }
+
     }
+
+
 }

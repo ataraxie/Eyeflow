@@ -19,9 +19,9 @@ namespace Eyeflow.Entities
         public int RightPos { get; set; }
         public int BottomPos { get; set; }
         public int TopPos { get; set; }
-        public int ParentWindowPtr { get; set; }
         public string WindowTitle { get; set; }
         public string WindowProcess { get; set; }
+
         public int ZIndex { get; set; }
         public bool IsActive { get; set; }
         public bool IsVisible { get; set; }

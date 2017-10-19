@@ -68,7 +68,6 @@ namespace Eyeflow.Runners
                 gaze.X = x;
                 gaze.Y = y;
                 gaze.WindowPtr = windowPtr;
-                gaze.ParentWindowPtr = parentWindowPtr;
                 gaze.WindowTitle = windowTitle;
                 gaze.WindowProcess = processName;
 
@@ -78,21 +77,51 @@ namespace Eyeflow.Runners
 
         private void onWindowEvent(object sender, WindowEventArgs e)
         {
+            log.debug("WINDOW EVENT");
+            long timestamp = GazeLib.getTimestamp();
             DwmRecord dwmRecord = new DwmRecord();
-            dwmRecord.Timestamp = GazeLib.getTimestamp();
+            dwmRecord.Timestamp = timestamp;
             dwmRecord.Event = "DUMMY_EVENT";
             dwmRecord.NumMonitors = Screen.AllScreens.Length;
 
             int dwmUuid = DatabaseService.Instance.writeDwmRecord(dwmRecord);
-            foreach (IntPtr windowHandle in WinLib.getAllTopLevelWindows()) 
+            HashSet<WindowInfo> allTopLevelWindows = WinLib.getAllTopLevelWindows();
+            int index = allTopLevelWindows.Count;
+            foreach (WindowInfo windowInfo in allTopLevelWindows) 
             {
-                if (GazeLib.isTargetWindow(windowHandle))
+                index--;
+                if (GazeLib.isTargetWindow(windowInfo.handle))
                 {
+                    IntPtr windowHandle = windowInfo.handle;
                     string processName = WinLib.getProcessName(windowHandle);
                     string windowTitle = WinLib.getWindowTitle(windowHandle);
-                    // CONTINUE HERE
-                    
-                }
+                    Rectangle rect = WinLib.getWindowRectangle(windowHandle);
+                    int windowStatus = WinLib.getWindowStatus(windowHandle);
+
+                    WindowRecord windowRecord = new WindowRecord();
+                    windowRecord.DwmUuid = dwmUuid;
+                    windowRecord.Timestamp = timestamp;
+                    windowRecord.WindowPtr = windowHandle.ToInt32();
+                    windowRecord.TopPos = rect.Top;
+                    windowRecord.RightPos = rect.Right;
+                    windowRecord.BottomPos = rect.Bottom;
+                    windowRecord.LeftPos = rect.Left;
+                    windowRecord.WindowProcess = processName;
+                    windowRecord.WindowTitle = windowTitle;
+                    windowRecord.ZIndex = index;
+
+                    log.debug(WinLib.IsIconic(windowHandle).ToString());
+                    //log.debug("Title:"+windowTitle+";Name:"+processName+";Z:"+index+";Status:"+windowStatus);
+
+        //                    public int ZIndex { get; set; }
+        //public bool IsActive { get; set; }
+        //public bool IsVisible { get; set; }
+        //public bool IsMinimized { get; set; }
+        //public bool IsMaximized { get; set; }
+        //public bool IsNormal { get; set; }
+        //public bool OnMonitor { get; set; }
+
+    }
             }
 
             

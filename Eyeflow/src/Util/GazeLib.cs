@@ -58,7 +58,7 @@ namespace Eyeflow.Util
             string processName = WinLib.getProcessName(window);
             string windowTitle = WinLib.getWindowTitle(window);
             return !windowTitle.Contains("Program Manager") && !String.IsNullOrEmpty(windowTitle)
-                && !(processName == "explorer" && !Config.Instance.enableForTaskBar);
+                && !(processName == "explorer" && windowTitle == "Start" && !Config.Instance.enableForTaskBar);
         }
     }
 }

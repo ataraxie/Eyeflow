@@ -16,7 +16,6 @@ namespace Eyeflow.Entities
         public int X { get; set; }
         public int Y { get; set; }
         public int WindowPtr { get; set; }
-        public int ParentWindowPtr { get; set; }
         public string WindowTitle { get; set; }
         public string WindowProcess { get; set; }
     }

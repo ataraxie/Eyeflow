@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using Eyeflow.Events;
 using Eyeflow.Util;
+using System.Timers;
 
 using System.Diagnostics;
 using System.Runtime.InteropServices;
@@ -18,7 +19,15 @@ namespace Eyeflow.Dispatchers
 
         public void start()
         {
-            WindowEvent(this, new WindowEventArgs());
+            Timer timer = new Timer();
+            timer.Elapsed += new ElapsedEventHandler(onTimerTick);
+            timer.Interval = 3000;
+            timer.Enabled = true;
+        }
+
+        protected void onTimerTick(object source, ElapsedEventArgs e)
+        {
+            onWindowEvent();
         }
 
         public void stop()
