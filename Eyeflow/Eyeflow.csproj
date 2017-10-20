@@ -8,7 +8,7 @@
     <OutputType>Exe</OutputType>
     <RootNamespace>Eyeflow</RootNamespace>
     <AssemblyName>Eyeflow</AssemblyName>
-    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
     <NuGetPackageImportStamp>
@@ -100,6 +100,9 @@
     </Reference>
     <Reference Include="Tobii.Interaction.Net, Version=0.7.3.333, Culture=neutral, PublicKeyToken=70326046dcdce6cb, processorArchitecture=MSIL">
       <HintPath>..\packages\Tobii.Interaction.0.7.3\lib\net45\Tobii.Interaction.Net.dll</HintPath>
+    </Reference>
+    <Reference Include="Topshelf, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b800c4cfcdeea87b, processorArchitecture=MSIL">
+      <HintPath>..\packages\Topshelf.4.0.3\lib\net452\Topshelf.dll</HintPath>
     </Reference>
   </ItemGroup>
   <ItemGroup>

@@ -31,14 +31,18 @@ namespace Eyeflow
                 runner = new DataCollectionRunner(gazeDispatcher, windowDispatcher);
                 runner.start();
                 windowDispatcher.start();
-                gazeDispatcher.start();
             }
             else
             {
                 runner = new AnimatingTimerRunner(gazeDispatcher);
                 runner.start();
+            }
+
+            if (Config.Instance.enableEyetracking)
+            {
                 gazeDispatcher.start();
             }
+
             Console.ReadKey();
             log.info("=== SHUTDOWN BY KEYPRESS ===");
             exit();
@@ -51,7 +55,10 @@ namespace Eyeflow
                 WinLib.setTransparency255ForAllWindows();
             }
             runner.stop();
-            gazeDispatcher.stop();
+            if (Config.Instance.enableEyetracking)
+            {
+                gazeDispatcher.stop();
+            }
         }
 
         private static void handleConsole()

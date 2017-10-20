@@ -15,6 +15,7 @@ namespace Eyeflow
         private static Config instance;
 
         // global
+        public bool enableEyetracking;
         public bool dataCollectionMode;
         public bool simulationMode;
         public long globalCheckTimerInterval; // 1000
@@ -82,6 +83,7 @@ namespace Eyeflow
             this.logToConsole = boolFromConfig("logToConsole");
             this.logShowMetaInfo = boolFromConfig("logShowMetaInfo");
             this.databaseFilePath = stringFromConfig("databaseFilePath");
+            this.enableEyetracking = boolFromConfig("enableEyetracking");
         }
 
         public override string ToString()
