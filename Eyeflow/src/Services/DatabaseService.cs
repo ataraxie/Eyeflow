@@ -5,11 +5,14 @@ using System.Text;
 using System.Threading.Tasks;
 using SQLite;
 using Eyeflow.Entities;
+using Eyeflow.Util;
 
 namespace Eyeflow.Services
 {
     class DatabaseService
     {
+        private static Logger log = Logger.get(typeof(DatabaseService));
+
         private static DatabaseService instance;
 
         private SQLiteConnection connection;
@@ -49,18 +52,29 @@ namespace Eyeflow.Services
             this.connection.Close();
         }
 
-        public int writeGazeRecord(GazeRecord gaze)
+        public void writeGazeRecord(GazeRecord gaze)
         {
+            long timestamp = GazeLib.getTimestamp();
             checkDbCreated();
-            return this.connection.Insert(gaze);
+            this.connection.Insert(gaze);
+            GazeLib.logProf(timestamp, "writeGazeRecord");
         }
 
-        public int writeDwmRecord(DwmRecord dwm)
+        public void writeDwmRecord(DwmRecord dwm)
         {
+            long timestamp = GazeLib.getTimestamp();
             checkDbCreated();
-            return this.connection.Insert(dwm);
+            this.connection.Insert(dwm);
+            GazeLib.logProf(timestamp, "writeDwmRecord");
         }
 
+        public void writeWindowRecord(WindowRecord windowRecord)
+        {
+            long timestamp = GazeLib.getTimestamp();
+            checkDbCreated();
+            this.connection.Insert(windowRecord);
+            GazeLib.logProf(timestamp, "writeWindowRecord");
+        }
 
         private void checkDbCreated()
         {

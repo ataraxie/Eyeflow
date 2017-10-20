@@ -5,6 +5,9 @@ namespace Eyeflow.Util
 {
     class GazeLib
     {
+        private static Logger log = Logger.get(typeof(GazeLib));
+
+
         public static int getTransparencyByTimeInactive(long timeInactiveMs)
         {
             int transparency;
@@ -55,10 +58,19 @@ namespace Eyeflow.Util
 
         public static bool isTargetWindow(IntPtr window)
         {
+            long timestamp = getTimestamp();
             string processName = WinLib.getProcessName(window);
             string windowTitle = WinLib.getWindowTitle(window);
-            return !windowTitle.Contains("Program Manager") && !String.IsNullOrEmpty(windowTitle)
+            bool ret = !windowTitle.Contains("Program Manager") && !String.IsNullOrEmpty(windowTitle)
+                && processName != "dwm"
                 && !(processName == "explorer" && windowTitle == "Start" && !Config.Instance.enableForTaskBar);
+            GazeLib.logProf(timestamp, "isTargetWindow");
+            return ret;
+        }
+
+        public static void logProf(long timestampBegin, string methodName)
+        {
+            log.trace("PROF:" + methodName + ":" + (GazeLib.getTimestamp() - timestampBegin).ToString());
         }
     }
 }

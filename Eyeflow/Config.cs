@@ -44,14 +44,6 @@ namespace Eyeflow
         // sqlite
         public string databaseFilePath;
 
-        // processes/windows => this is not in config file (yet)
-        internal List<string> ignoredWindowTitles = new List<string>(new string[] { // niu
-            "", "Program Manager", //"explorer"//, "Eyeflow"
-        });
-        internal List<string> ignoredProcesses = new List<string>(new string[] { // niu
-            "explorer", "Idle"//, "Eyeflow"
-        });
-
         static Config()
         {
             instance = new Config();

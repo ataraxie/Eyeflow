@@ -77,55 +77,64 @@ namespace Eyeflow.Runners
 
         private void onWindowEvent(object sender, WindowEventArgs e)
         {
-            log.debug("WINDOW EVENT");
+            log.trace("=== onWindowEvent ===");
             long timestamp = GazeLib.getTimestamp();
+            List<Screen> allScreens = new List<Screen>(Screen.AllScreens);
+            GazeLib.logProf(timestamp, "Screen.AllScreens");
+
+            long timestamp2 = GazeLib.getTimestamp();
             DwmRecord dwmRecord = new DwmRecord();
             dwmRecord.Timestamp = timestamp;
             dwmRecord.Event = "DUMMY_EVENT";
-            dwmRecord.NumMonitors = Screen.AllScreens.Length;
+            dwmRecord.NumScreens = allScreens.Count;
+            GazeLib.logProf(timestamp2, "DwmRecord");
 
-            int dwmUuid = DatabaseService.Instance.writeDwmRecord(dwmRecord);
-            HashSet<IntPtr> allTopLevelWindows = WinLib.getAllTopLevelWindows();
-            int index = allTopLevelWindows.Count;
-            foreach (IntPtr windowHandle in allTopLevelWindows) 
+            DatabaseService.Instance.writeDwmRecord(dwmRecord);
+            int dwmRecordId = dwmRecord.Id;
+
+            long timestamp3 = GazeLib.getTimestamp();
+            HashSet <IntPtr> windows = WinLib.getAllVisibleOrMinimizedWindows();
+            GazeLib.logProf(timestamp3, "GetWindows");
+            int index = windows.Count;
+            foreach (IntPtr windowHandle in windows) 
             {
                 index--;
                 if (GazeLib.isTargetWindow(windowHandle))
                 {
-                    string processName = WinLib.getProcessName(windowHandle);
-                    string windowTitle = WinLib.getWindowTitle(windowHandle);
+                    long timestamp4 = GazeLib.getTimestamp();
                     Rectangle rect = WinLib.getWindowRectangle(windowHandle);
-                    int windowStatus = WinLib.getWindowStatus(windowHandle);
+                    IntPtr activeWindow = WinLib.GetForegroundWindow();
+                    Screen screen = Screen.FromRectangle(rect);
+                    GazeLib.logProf(timestamp4, "WindowInfo");
 
-                    WindowRecord windowRecord = new WindowRecord();
-                    windowRecord.DwmUuid = dwmUuid;
-                    windowRecord.Timestamp = timestamp;
-                    windowRecord.WindowPtr = windowHandle.ToInt32();
-                    windowRecord.TopPos = rect.Top;
-                    windowRecord.RightPos = rect.Right;
-                    windowRecord.BottomPos = rect.Bottom;
-                    windowRecord.LeftPos = rect.Left;
-                    windowRecord.WindowProcess = processName;
-                    windowRecord.WindowTitle = windowTitle;
-                    windowRecord.ZIndex = index;
+                    long timestamp5 = GazeLib.getTimestamp();
+                    WindowRecord windowRecord = new WindowRecord()
+                    {
+                        DwmRecordId = dwmRecordId,
+                        Timestamp = timestamp,
+                        WindowPtr = windowHandle.ToInt32(),
+                        TopPos = rect.Top,
+                        RightPos = rect.Right,
+                        BottomPos = rect.Bottom,
+                        LeftPos = rect.Left,
+                        ProcessName = WinLib.getProcessName(windowHandle),
+                        Title = WinLib.getWindowTitle(windowHandle),
+                        Status = WinLib.getWindowStatus(windowHandle),
+                        IsForeground = windowHandle == activeWindow,
+                        IsVisible = WinLib.IsWindowVisible(windowHandle),
+                        IsIconic = WinLib.IsIconic(windowHandle),
+                        Screen = allScreens.IndexOf(screen),
+                        ZIndex = index
+                    };
+                    GazeLib.logProf(timestamp5, "WindowRecord");
 
-                    log.debug(WinLib.IsIconic(windowHandle).ToString());
-                    //log.debug("Title:"+windowTitle+";Name:"+processName+";Z:"+index+";Status:"+windowStatus);
-
-        //                    public int ZIndex { get; set; }
-        //public bool IsActive { get; set; }
-        //public bool IsVisible { get; set; }
-        //public bool IsMinimized { get; set; }
-        //public bool IsMaximized { get; set; }
-        //public bool IsNormal { get; set; }
-        //public bool OnMonitor { get; set; }
-
-    }
+                    DatabaseService.Instance.writeWindowRecord(windowRecord);
+                    //log.debug(windowRecord.ToString());
+                }
             }
 
+            GazeLib.logProf(timestamp, "onWindowEvent");
             
-            // create many Window records
-            //WinLib.getAllWindows();
         }
 
     }

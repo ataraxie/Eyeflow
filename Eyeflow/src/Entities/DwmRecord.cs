@@ -10,10 +10,10 @@ namespace Eyeflow.Entities
     class DwmRecord
     {
         [PrimaryKey, AutoIncrement]
-        public int Uuid { get; set; }
+        public int Id { get; set; }
 
         public long Timestamp { get; set; }
         public string Event { get; set; }
-        public int NumMonitors { get; set; }
+        public int NumScreens { get; set; }
     }
 }

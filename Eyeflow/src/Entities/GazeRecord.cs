@@ -10,7 +10,7 @@ namespace Eyeflow.Entities
     class GazeRecord
     {
         [PrimaryKey, AutoIncrement]
-        public int Uuid { get; set; }
+        public int Id { get; set; }
 
         public long Timestamp { get; set; }
         public int X { get; set; }

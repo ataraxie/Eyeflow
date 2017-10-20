@@ -11,16 +11,18 @@ namespace Eyeflow.Util
         public static int LEVEL_WARN = 1;
         public static int LEVEL_INFO = 2;
         public static int LEVEL_DEBUG = 3;
+        public static int LEVEL_TRACE = 4;
 
         public static string ERROR = "error";
         public static string WARN = "warn";
         public static string INFO = "info";
         public static string DEBUG = "debug";
+        public static string TRACE = "trace";
 
         public static bool DEBUG_ENABLED = false;
 
         public static List<string> LEVELS = new List<string>(new string[] {
-            "error", "warn", "info", "debug"
+            "error", "warn", "info", "debug", "trace"
         });
 
         private Type type;
@@ -49,6 +51,19 @@ namespace Eyeflow.Util
         public bool isDebugEnabled()
         {
             return LOG_LEVEL >= LEVEL_DEBUG;
+        }
+
+        public void trace(string msg)
+        {
+            trace(msg, new object[0]);
+        }
+
+        public void trace(string msg, params object[] values)
+        {
+            if (LOG_LEVEL >= LEVEL_TRACE)
+            {
+                writeLog(DEBUG, msg, values);
+            }
         }
 
         public void debug(string msg)

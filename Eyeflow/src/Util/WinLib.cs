@@ -52,6 +52,9 @@ namespace Eyeflow.Util
         [DllImport("user32.dll")]
         public static extern bool SetForegroundWindow(IntPtr hWnd);
 
+        [DllImport("user32.dll")]
+        public static extern IntPtr GetForegroundWindow();
+
         [DllImport("User32.dll")]
         public static extern IntPtr GetDC(IntPtr hwnd);
 
@@ -78,13 +81,6 @@ namespace Eyeflow.Util
             public System.Drawing.Point ptMinPosition;
             public System.Drawing.Point ptMaxPosition;
             public System.Drawing.Rectangle rcNormalPosition;
-        }
-        public enum WindowStatus : int
-        {
-            Hide = 0,
-            Normal = 1,
-            Minimized = 2,
-            Maximized = 3,
         }
 
         [DllImport("Kernel32")]
@@ -133,24 +129,24 @@ namespace Eyeflow.Util
             return getProcess(window).ProcessName;
         }
 
-        public static HashSet<IntPtr> getAllTopLevelWindows()
+        public static HashSet<IntPtr> getAllVisibleOrMinimizedWindows()
         {
-            return new GetTopLevelWindowsAction(true).exec();
+            return new GetWindowsAction(true).exec();
         }
 
         public static HashSet<IntPtr> getAllWindows()
         {
-            return new GetTopLevelWindowsAction(false).exec();
+            return new GetWindowsAction(false).exec();
         }
 
-        private class GetTopLevelWindowsAction
+        private class GetWindowsAction
         {
             private HashSet<IntPtr> windows = new HashSet<IntPtr>();
-            private bool onlyTopLevel;
+            private bool onlyVisibleOrMinimized;
 
-            public GetTopLevelWindowsAction(bool onlyTopLevel)
+            public GetWindowsAction(bool onlyVisibleOrMinimized)
             {
-                this.onlyTopLevel = onlyTopLevel;
+                this.onlyVisibleOrMinimized = onlyVisibleOrMinimized;
             }
 
             public HashSet<IntPtr> exec()
@@ -162,7 +158,7 @@ namespace Eyeflow.Util
 
             private bool EnumWindowsCallback(IntPtr window, IntPtr lParam)
             {
-                if (!this.onlyTopLevel || WinLib.isTopLevelWindow(window))
+                if (!this.onlyVisibleOrMinimized || WinLib.isVisibleOrMinimized(window))
                 {
                     this.windows.Add(window);
                 }
@@ -170,11 +166,15 @@ namespace Eyeflow.Util
             }
         }
 
-        public static bool isTopLevelWindow(IntPtr window)
+        public static bool isMinimized(IntPtr window)
+        {
+            return IsIconic(window) || getWindowStatus(window) == 2;
+        }
+
+        public static bool isVisible(IntPtr window)
         {
             bool ret = false;
-            Process process = WinLib.getProcess(window);
-            if (window != IntPtr.Zero && !IsIconic(window) && IsWindowVisible(window))
+            if (IsWindowVisible(window))
             {
                 Rectangle rect = new Rectangle();
                 GetWindowRect(window, out rect);
@@ -184,6 +184,11 @@ namespace Eyeflow.Util
                 }
             }
             return ret;
+        }
+
+        public static bool isVisibleOrMinimized(IntPtr window)
+        {
+            return window != IntPtr.Zero && (isVisible(window) || isMinimized(window));
         }
 
         public static void setTransparency(IntPtr handle, byte value)
