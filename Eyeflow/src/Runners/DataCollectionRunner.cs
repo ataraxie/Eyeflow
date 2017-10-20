@@ -53,6 +53,7 @@ namespace Eyeflow.Runners
             this.gazeCount++;
             if (this.gazeCount % config.runOnEveryXGazeDispatch == 0)
             {
+                log.info("=== Gaze Run ===");
                 GazeRecord gaze = new GazeRecord();
                 int x = (int)e.x;
                 int y = (int)e.y;
@@ -77,7 +78,7 @@ namespace Eyeflow.Runners
 
         private void onWindowEvent(object sender, WindowEventArgs e)
         {
-            log.trace("=== onWindowEvent ===");
+            log.info("=== Window Run ===");
             long timestamp = GazeLib.getTimestamp();
             List<Screen> allScreens = new List<Screen>(Screen.AllScreens);
             GazeLib.logProf(timestamp, "Screen.AllScreens");
@@ -121,7 +122,6 @@ namespace Eyeflow.Runners
                         Title = WinLib.getWindowTitle(windowHandle),
                         Status = WinLib.getWindowStatus(windowHandle),
                         IsForeground = windowHandle == activeWindow,
-                        IsVisible = WinLib.IsWindowVisible(windowHandle),
                         IsIconic = WinLib.IsIconic(windowHandle),
                         Screen = allScreens.IndexOf(screen),
                         ZIndex = index
@@ -129,7 +129,6 @@ namespace Eyeflow.Runners
                     GazeLib.logProf(timestamp5, "WindowRecord");
 
                     DatabaseService.Instance.writeWindowRecord(windowRecord);
-                    //log.debug(windowRecord.ToString());
                 }
             }
 

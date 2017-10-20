@@ -1,5 +1,7 @@
 ﻿using System;
 using System.Drawing;
+using System.ComponentModel;
+using System.Text;
 
 namespace Eyeflow.Util
 {
@@ -71,6 +73,18 @@ namespace Eyeflow.Util
         public static void logProf(long timestampBegin, string methodName)
         {
             log.trace("PROF:" + methodName + ":" + (GazeLib.getTimestamp() - timestampBegin).ToString());
+        }
+
+        public static string objectDump(Object someObject)
+        {
+            StringBuilder b = new StringBuilder();
+            foreach (PropertyDescriptor descriptor in TypeDescriptor.GetProperties(someObject))
+            {
+                string name = descriptor.Name;
+                object value = descriptor.GetValue(someObject);
+                b.Append(String.Format("{0}={1};", name, value));
+            }
+            return b.ToString();
         }
     }
 }

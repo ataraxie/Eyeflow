@@ -18,7 +18,10 @@ namespace Eyeflow.Dispatchers
 
         public void stop()
         {
-            this.host.DisableConnection();
+            if (this.host != null)
+            {
+                this.host.DisableConnection();
+            }
         }
 
         public void addEventHandler(EventHandler<GazeEventArgs> handler)

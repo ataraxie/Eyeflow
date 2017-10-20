@@ -21,7 +21,7 @@ namespace Eyeflow.Dispatchers
         {
             Timer timer = new Timer();
             timer.Elapsed += new ElapsedEventHandler(onTimerTick);
-            timer.Interval = 3000;
+            timer.Interval = 2000;
             timer.Enabled = true;
         }
 

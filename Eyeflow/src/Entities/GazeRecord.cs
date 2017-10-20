@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using SQLite;
+using Eyeflow.Util;
 
 namespace Eyeflow.Entities
 {
@@ -18,5 +19,10 @@ namespace Eyeflow.Entities
         public int WindowPtr { get; set; }
         public string WindowTitle { get; set; }
         public string WindowProcess { get; set; }
+
+        public override string ToString()
+        {
+            return this.WindowProcess + ":::" + GazeLib.objectDump(this);
+        }
     }
 }

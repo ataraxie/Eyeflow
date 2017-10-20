@@ -52,19 +52,21 @@ namespace Eyeflow.Services
             this.connection.Close();
         }
 
-        public void writeGazeRecord(GazeRecord gaze)
+        public void writeGazeRecord(GazeRecord gazeRecord)
         {
             long timestamp = GazeLib.getTimestamp();
             checkDbCreated();
-            this.connection.Insert(gaze);
+            log.debug("Writing GazeRecord: " + gazeRecord.ToString());
+            this.connection.Insert(gazeRecord);
             GazeLib.logProf(timestamp, "writeGazeRecord");
         }
 
-        public void writeDwmRecord(DwmRecord dwm)
+        public void writeDwmRecord(DwmRecord dwmRecord)
         {
             long timestamp = GazeLib.getTimestamp();
             checkDbCreated();
-            this.connection.Insert(dwm);
+            log.debug("Writing DwmRecord: " + dwmRecord.ToString());
+            this.connection.Insert(dwmRecord);
             GazeLib.logProf(timestamp, "writeDwmRecord");
         }
 
@@ -72,6 +74,7 @@ namespace Eyeflow.Services
         {
             long timestamp = GazeLib.getTimestamp();
             checkDbCreated();
+            log.debug("Writing windowRecord: " + windowRecord.ToString());
             this.connection.Insert(windowRecord);
             GazeLib.logProf(timestamp, "writeWindowRecord");
         }

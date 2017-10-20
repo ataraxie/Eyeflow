@@ -31,7 +31,7 @@ namespace Eyeflow
                 runner = new DataCollectionRunner(gazeDispatcher, windowDispatcher);
                 runner.start();
                 windowDispatcher.start();
-                //gazeDispatcher.start();
+                gazeDispatcher.start();
             }
             else
             {
@@ -50,8 +50,8 @@ namespace Eyeflow
             {
                 WinLib.setTransparency255ForAllWindows();
             }
-            //runner.stop();
-            //gazeDispatcher.stop();
+            runner.stop();
+            gazeDispatcher.stop();
         }
 
         private static void handleConsole()
