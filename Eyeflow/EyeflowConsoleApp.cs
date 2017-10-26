@@ -10,69 +10,33 @@ using Eyeflow.Util;
 
 namespace Eyeflow
 {
-    class EyeflowConsoleApp
+    class EyeflowConsoleApp : EyeflowApp
     {
         private static Logger log = Logger.get(typeof(EyeflowConsoleApp));
 
-        private static Runner runner;
-        private static GazeDispatcher gazeDispatcher;
-        private static WindowDispatcher windowDispatcher;
         private static WinLib.HandlerRoutine consoleHandler;
 
-        public static void execute()
+        public void execute()
         {
             handleConsole();
-            log.info("=== EYEFLOW STARTED - WELCOME! ===");
-            log.info("CONFIG: " + Config.Instance.ToString());
-            gazeDispatcher = new RealGazeDispatcher();
-            windowDispatcher = new WindowDispatcher();
-            if (Config.Instance.dataCollectionMode)
-            {   
-                runner = new DataCollectionRunner(gazeDispatcher, windowDispatcher);
-                runner.start();
-                windowDispatcher.start();
-            }
-            else
-            {
-                runner = new AnimatingTimerRunner(gazeDispatcher);
-                runner.start();
-            }
-
-            if (Config.Instance.enableEyetracking)
-            {
-                gazeDispatcher.start();
-            }
-
+            base.execute();
             Console.ReadKey();
             log.info("=== SHUTDOWN BY KEYPRESS ===");
-            exit();
+            base.exit();
         }
 
-        private static void exit()
-        {
-            if (!Config.Instance.dataCollectionMode && ! Config.Instance.simulationMode)
-            {
-                WinLib.setTransparency255ForAllWindows();
-            }
-            runner.stop();
-            if (Config.Instance.enableEyetracking)
-            {
-                gazeDispatcher.stop();
-            }
-        }
-
-        private static void handleConsole()
+        private void handleConsole()
         {
             consoleHandler = new WinLib.HandlerRoutine(ConsoleCtrlCheck);
             WinLib.SetConsoleCtrlHandler(consoleHandler, true);
         }
 
-        private static bool ConsoleCtrlCheck(WinLib.CtrlTypes ctrlType)
+        private bool ConsoleCtrlCheck(WinLib.CtrlTypes ctrlType)
         {
             if (ctrlType == WinLib.CtrlTypes.CTRL_CLOSE_EVENT)
             {
                 log.info("=== SHUTDOWN BY CTRL_CLOSE_EVENT ===");
-                exit();
+                base.exit();
             }
             return false;
         }

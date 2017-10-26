@@ -11,7 +11,7 @@ namespace Eyeflow
         {
             try
             {
-                EyeflowConsoleApp.execute();
+                new EyeflowConsoleApp().execute();
             } catch (Exception e)
             {
                 log.error("Error occurred: {0}", e.ToString());
@@ -19,7 +19,6 @@ namespace Eyeflow
                 {
                     WinLib.setTransparency255ForAllWindows();
                 }
-                Console.ReadLine();
             }
         }
     }
