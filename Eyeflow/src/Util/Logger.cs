@@ -32,13 +32,19 @@ namespace Eyeflow.Util
 
         static Logger()
         {
-            FS = File.Open(Config.Instance.logFilePath, FileMode.Append);
             LOG_LEVEL = LEVELS.IndexOf(Config.Instance.logLevel.ToLower());
             DEBUG_ENABLED = LOG_LEVEL >= LEVEL_DEBUG;
         }
 
         public static Logger get(Type type)
         {
+            // This was in the static constructor originally, but that doesn't work when it's a service.
+            // This way we create the filestream as soon as the first logger is requested.
+            // This is weird but it works.
+            if (FS == null)
+            {
+                FS = File.Open(Config.Instance.logFilePath, FileMode.Append);
+            }
             return new Logger(type);
         }
 

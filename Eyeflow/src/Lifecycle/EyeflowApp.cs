@@ -8,7 +8,7 @@ using Eyeflow.Dispatchers;
 
 using Eyeflow.Util;
 
-namespace Eyeflow
+namespace Eyeflow.Lifecycle
 {
     class EyeflowApp
     {
@@ -18,7 +18,7 @@ namespace Eyeflow
         private GazeDispatcher gazeDispatcher;
         private WindowDispatcher windowDispatcher;
 
-        public void execute()
+        public virtual void execute()
         {
             log.info("=== EYEFLOW STARTED - WELCOME! ===");
             log.info("CONFIG: " + Config.Instance.ToString());
@@ -42,17 +42,15 @@ namespace Eyeflow
             }
         }
 
-        public void exit()
+        public virtual void exit()
         {
             if (!Config.Instance.dataCollectionMode && ! Config.Instance.simulationMode)
             {
                 WinLib.setTransparency255ForAllWindows();
             }
             runner.stop();
-            if (Config.Instance.enableEyetracking)
-            {
-                gazeDispatcher.stop();
-            }
+            gazeDispatcher.stop();
+            windowDispatcher.stop();
         }
 
     }

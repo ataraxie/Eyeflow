@@ -1,5 +1,6 @@
 ﻿using System;
 using Eyeflow.Util;
+using Eyeflow.Lifecycle;
 
 namespace Eyeflow
 {
@@ -11,7 +12,8 @@ namespace Eyeflow
         {
             try
             {
-                new EyeflowConsoleApp().execute();
+                //new EyeflowConsoleApp().execute();
+                new EyeflowFormApp().execute();
             } catch (Exception e)
             {
                 log.error("Error occurred: {0}", e.ToString());

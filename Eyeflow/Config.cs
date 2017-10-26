@@ -11,7 +11,6 @@ namespace Eyeflow
 {
     class Config
     {
-        private static Logger log = Logger.get(typeof(Config));
         private static Config instance;
 
         // global

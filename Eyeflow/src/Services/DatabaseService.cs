@@ -57,7 +57,9 @@ namespace Eyeflow.Services
             long timestamp = GazeLib.getTimestamp();
             checkDbCreated();
             log.debug("Writing GazeRecord: " + gazeRecord.ToString());
-            this.connection.Insert(gazeRecord);
+            insertSafe(gazeRecord);
+
+
             GazeLib.logProf(timestamp, "writeGazeRecord");
         }
 
@@ -66,7 +68,7 @@ namespace Eyeflow.Services
             long timestamp = GazeLib.getTimestamp();
             checkDbCreated();
             log.debug("Writing DwmRecord: " + dwmRecord.ToString());
-            this.connection.Insert(dwmRecord);
+            insertSafe(dwmRecord);
             GazeLib.logProf(timestamp, "writeDwmRecord");
         }
 
@@ -75,8 +77,20 @@ namespace Eyeflow.Services
             long timestamp = GazeLib.getTimestamp();
             checkDbCreated();
             log.debug("Writing windowRecord: " + windowRecord.ToString());
-            this.connection.Insert(windowRecord);
+            insertSafe(windowRecord);
             GazeLib.logProf(timestamp, "writeWindowRecord");
+        }
+
+        private void insertSafe(Object obj)
+        {
+            try
+            {
+                this.connection.Insert(obj);
+            }
+            catch (Exception e)
+            {
+                log.warn("Failed to write record of type {0}", obj.GetType());
+            }
         }
 
         private void checkDbCreated()

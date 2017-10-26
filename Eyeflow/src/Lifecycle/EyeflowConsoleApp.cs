@@ -8,7 +8,7 @@ using Eyeflow.Dispatchers;
 
 using Eyeflow.Util;
 
-namespace Eyeflow
+namespace Eyeflow.Lifecycle
 {
     class EyeflowConsoleApp : EyeflowApp
     {
@@ -16,7 +16,7 @@ namespace Eyeflow
 
         private static WinLib.HandlerRoutine consoleHandler;
 
-        public void execute()
+        public override void execute()
         {
             handleConsole();
             base.execute();
