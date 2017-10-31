@@ -19,20 +19,17 @@ namespace Eyeflow.Dispatchers
 
         public void start()
         {
-            Timer timer = new Timer();
-            timer.Elapsed += new ElapsedEventHandler(onTimerTick);
-            timer.Interval = 2000;
-            timer.Enabled = true;
+            // niu
         }
 
         protected void onTimerTick(object source, ElapsedEventArgs e)
         {
-            onWindowEvent();
+            // niu
         }
 
         public void stop()
         {
-            
+            // niu
         }
 
         public void addEventHandler(EventHandler<WindowEventArgs> handler)

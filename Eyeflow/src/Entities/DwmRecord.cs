@@ -14,12 +14,11 @@ namespace Eyeflow.Entities
         public int Id { get; set; }
 
         public long Timestamp { get; set; }
-        public string Event { get; set; }
         public int NumScreens { get; set; }
 
         public override string ToString()
         {
-            return this.Event + ":::" + GazeLib.objectDump(this);
+            return GazeLib.objectDump(this);
         }
     }
 }

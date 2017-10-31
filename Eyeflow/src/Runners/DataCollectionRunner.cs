@@ -34,7 +34,7 @@ namespace Eyeflow.Runners
             this.gazeDispatcher = gazeDispatcher;
             this.gazeDispatcher.addEventHandler(onGazeEvent);
             this.windowDispatcher = windowDispatcher;
-            this.windowDispatcher.addEventHandler(onWindowEvent);
+            //this.windowDispatcher.addEventHandler(onWindowEvent);
         }
 
         public override void start()
@@ -53,7 +53,7 @@ namespace Eyeflow.Runners
             this.gazeCount++;
             if (this.gazeCount % config.runOnEveryXGazeDispatch == 0)
             {
-                log.info("=== Gaze Run ===");
+                log.debug("=== Gaze Run ===");
                 GazeRecord gaze = new GazeRecord();
                 int x = (int)e.x;
                 int y = (int)e.y;
@@ -73,12 +73,14 @@ namespace Eyeflow.Runners
                 gaze.WindowProcess = processName;
 
                 DatabaseService.Instance.writeGazeRecord(gaze);
+
+                createDwmSnapshot();
             }
         }
 
-        private void onWindowEvent(object sender, WindowEventArgs e)
+        private void createDwmSnapshot()
         {
-            log.info("=== Window Run ===");
+            log.debug("=== Creating DWM Snapshot ===");
             long timestamp = GazeLib.getTimestamp();
             List<Screen> allScreens = new List<Screen>(Screen.AllScreens);
             GazeLib.logProf(timestamp, "Screen.AllScreens");
@@ -86,7 +88,6 @@ namespace Eyeflow.Runners
             long timestamp2 = GazeLib.getTimestamp();
             DwmRecord dwmRecord = new DwmRecord();
             dwmRecord.Timestamp = timestamp;
-            dwmRecord.Event = "DUMMY_EVENT";
             dwmRecord.NumScreens = allScreens.Count;
             GazeLib.logProf(timestamp2, "DwmRecord");
 

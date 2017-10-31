@@ -97,7 +97,7 @@ namespace Eyeflow.Services
         {
             if (this.connection == null)
             {
-                throw new Exception("No database was created");
+                log.error("Attempted write to database but none was created!");
             }
         }
 

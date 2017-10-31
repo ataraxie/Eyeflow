@@ -101,11 +101,9 @@
     <Reference Include="Tobii.Interaction.Net, Version=0.7.3.333, Culture=neutral, PublicKeyToken=70326046dcdce6cb, processorArchitecture=MSIL">
       <HintPath>..\packages\Tobii.Interaction.0.7.3\lib\net45\Tobii.Interaction.Net.dll</HintPath>
     </Reference>
-    <Reference Include="Topshelf, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b800c4cfcdeea87b, processorArchitecture=MSIL">
-      <HintPath>..\packages\Topshelf.4.0.3\lib\net452\Topshelf.dll</HintPath>
-    </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="src\Dispatchers\WindowDispatcher.cs" />
     <Compile Include="src\Lifecycle\EyeflowApp.cs" />
     <Compile Include="src\Lifecycle\EyeflowFormContext.cs" />
     <Compile Include="src\Lifecycle\EyeflowFormApp.cs" />
@@ -114,7 +112,6 @@
     <Compile Include="src\Animations\FadeOutAnimation.cs" />
     <Compile Include="Config.cs" />
     <Compile Include="src\Dispatchers\Dispatcher.cs" />
-    <Compile Include="src\Dispatchers\WindowDispatcher.cs" />
     <Compile Include="src\Dispatchers\GazeDispatcher.cs" />
     <Compile Include="src\Dispatchers\SimulatingGazeDispatcher.cs" />
     <Compile Include="src\Lifecycle\EyeflowConsoleApp.cs" />
