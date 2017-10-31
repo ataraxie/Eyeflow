@@ -14,6 +14,7 @@ namespace Eyeflow
         private static Config instance;
 
         // global
+        public int windowDispatcherIntervalMs;
         public bool enableEyetracking;
         public bool dataCollectionMode;
         public bool simulationMode;
@@ -63,11 +64,12 @@ namespace Eyeflow
 
         private void readConfigProperties()
         {
+            this.windowDispatcherIntervalMs = intFromConfig("windowDispatcherIntervalMs");
             this.enableForTaskBar = boolFromConfig("enableForTaskBar");
             this.dataCollectionMode = boolFromConfig("dataCollectionMode");
             this.simulationMode = boolFromConfig("simulationMode");
             this.globalCheckTimerInterval = longFromConfig("globalCheckTimerInterval");
-            this.runOnEveryXGazeDispatch = intFromConfig("runOnEveryXGazeDispatch ");
+            this.runOnEveryXGazeDispatch = intFromConfig("runOnEveryXGazeDispatch");
             this.gazeTimeRequiredForHighlightMs = intFromConfig("gazeTimeRequiredForHighlightMs");
             this.howManyHighlightedConcurrentWindows = intFromConfig("howManyHighlightedConcurrentWindows");
             this.windowToForegroundOnGazeAfterMs = intFromConfig("windowToForegroundOnGazeAfterMs");

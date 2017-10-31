@@ -17,19 +17,25 @@ namespace Eyeflow.Dispatchers
         private event EventHandler<WindowEventArgs> WindowEvent;
         private static Logger log = Logger.get(typeof(WindowDispatcher));
 
+        private Timer timer;
+
         public void start()
         {
-            // niu
+            this.timer = new Timer();
+            timer.Elapsed += new ElapsedEventHandler(onTimerTick);
+            timer.Interval = Config.Instance.windowDispatcherIntervalMs;
+            timer.Enabled = true;
         }
 
         protected void onTimerTick(object source, ElapsedEventArgs e)
         {
-            // niu
+            onWindowEvent();
         }
 
         public void stop()
         {
-            // niu
+            this.timer.Stop();
+            this.timer.Dispose();
         }
 
         public void addEventHandler(EventHandler<WindowEventArgs> handler)

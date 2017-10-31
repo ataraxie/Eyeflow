@@ -34,7 +34,7 @@ namespace Eyeflow.Runners
             this.gazeDispatcher = gazeDispatcher;
             this.gazeDispatcher.addEventHandler(onGazeEvent);
             this.windowDispatcher = windowDispatcher;
-            //this.windowDispatcher.addEventHandler(onWindowEvent);
+            this.windowDispatcher.addEventHandler(onWindowEvent);
         }
 
         public override void start()
@@ -74,11 +74,10 @@ namespace Eyeflow.Runners
 
                 DatabaseService.Instance.writeGazeRecord(gaze);
 
-                createDwmSnapshot();
             }
         }
 
-        private void createDwmSnapshot()
+        private void onWindowEvent(object sender, WindowEventArgs e)
         {
             log.debug("=== Creating DWM Snapshot ===");
             long timestamp = GazeLib.getTimestamp();
