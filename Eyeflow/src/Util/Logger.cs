@@ -22,7 +22,7 @@ namespace Eyeflow.Util
         public static bool DEBUG_ENABLED = false;
 
         public static List<string> LEVELS = new List<string>(new string[] {
-            "error", "warn", "info", "debug", "trace"
+            ERROR, WARN, INFO, DEBUG, TRACE
         });
 
         private Type type;
@@ -34,17 +34,11 @@ namespace Eyeflow.Util
         {
             LOG_LEVEL = LEVELS.IndexOf(Config.Instance.logLevel.ToLower());
             DEBUG_ENABLED = LOG_LEVEL >= LEVEL_DEBUG;
+            FS = File.Open(Config.Instance.logFilePath, FileMode.Append);
         }
 
         public static Logger get(Type type)
         {
-            // This was in the static constructor originally, but that doesn't work when it's a service.
-            // This way we create the filestream as soon as the first logger is requested.
-            // This is weird but it works.
-            if (FS == null)
-            {
-                FS = File.Open(Config.Instance.logFilePath, FileMode.Append);
-            }
             return new Logger(type);
         }
 
@@ -52,11 +46,6 @@ namespace Eyeflow.Util
         {
             this.type = type;
             this.className = this.type.Name;
-        }
-
-        public bool isDebugEnabled()
-        {
-            return LOG_LEVEL >= LEVEL_DEBUG;
         }
 
         public void trace(string msg)
@@ -147,9 +136,17 @@ namespace Eyeflow.Util
 
         private void writeToFile(string value)
         {
-            value += "\n";
-            byte[] info = new UTF8Encoding(true).GetBytes(value);
-            FS.Write(info, 0, info.Length);
+            try
+            {
+                value += "\n";
+                byte[] info = new UTF8Encoding(true).GetBytes(value);
+                FS.Write(info, 0, info.Length);
+            }
+            catch (Exception e)
+            {
+                // it's ok if we can't log
+            }
+
         }
 
     }
