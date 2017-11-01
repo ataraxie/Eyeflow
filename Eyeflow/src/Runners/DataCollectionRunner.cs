@@ -53,6 +53,7 @@ namespace Eyeflow.Runners
             this.gazeCount++;
             if (this.gazeCount % config.runOnEveryXGazeDispatch == 0)
             {
+                this.gazeCount = 0;
                 log.debug("=== Gaze Run ===");
                 GazeRecord gaze = new GazeRecord();
                 int x = (int)e.x;
@@ -73,7 +74,6 @@ namespace Eyeflow.Runners
                 gaze.WindowProcess = processName;
 
                 DatabaseService.Instance.writeGazeRecord(gaze);
-
             }
         }
 
