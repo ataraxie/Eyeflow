@@ -158,10 +158,18 @@ namespace Eyeflow.Util
 
             private bool EnumWindowsCallback(IntPtr window, IntPtr lParam)
             {
-                if (!this.onlyVisibleOrMinimized || WinLib.isVisibleOrMinimized(window))
+                try
                 {
-                    this.windows.Add(window);
+                    if (!this.onlyVisibleOrMinimized || WinLib.isVisibleOrMinimized(window))
+                    {
+                        this.windows.Add(window);
+                    }
+                } catch (Exception e)
+                {
+                    log.error("ERROR in EnumWindowsCallback: " + e.ToString() + 
+                        e.GetType() + e.GetBaseException().ToString());
                 }
+
                 return true;
             }
         }
